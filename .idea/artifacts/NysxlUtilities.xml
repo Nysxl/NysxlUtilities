@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NysxlUtilities">
+    <output-path>$PROJECT_DIR$/out/artifacts/NysxlUtilities</output-path>
+    <root id="archive" name="NysxlUtilities.jar" />
+  </artifact>
+</component>
