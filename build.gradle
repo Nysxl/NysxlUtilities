@@ -2,25 +2,25 @@ plugins {
     id 'java'
 }
 
-apply plugin: 'java'
 group 'NysxlUtilities'
 version '1.0'
 
 repositories {
-    maven {
-        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
-        content {
-            includeGroup 'org.bukkit'
-            includeGroup 'org.spigotmc'
-        }
-    }
-    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
-    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
+    mavenCentral() // Primary repository
+    jcenter() // JCenter for any additional libraries, note that JCenter is being sunset
+    google()
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // For Spigot and Minecraft dependencies
+    maven { url 'https://libraries.minecraft.net/' } // Minecraft-specific libraries
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' } // For snapshot versions
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT' // The Spigot API with no shadowing. Requires the OSS repo.
-    compileOnly 'me.clip:placeholderapi:2.11.5'
+    implementation 'org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT'
+    implementation 'com.google.guava:guava:30.1-jre' // Update Guava version
+    implementation 'com.google.code.gson:gson:2.8.6' // Update Gson version
+    implementation 'org.joml:joml:1.10.2' // Update JOML version
+    implementation 'net.md-5:bungeecord-chat:1.16-R0.4' // Update BungeeCord version, adjust as needed
+    implementation 'org.yaml:snakeyaml:1.28' // Update SnakeYAML version
 }
 
 sourceSets {
