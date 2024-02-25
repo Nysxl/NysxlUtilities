@@ -7,7 +7,6 @@ version '1.0'
 
 repositories {
     mavenCentral() // Primary repository
-    jcenter() // JCenter for any additional libraries, note that JCenter is being sunset
     google()
     maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // For Spigot and Minecraft dependencies
     maven { url 'https://libraries.minecraft.net/' } // Minecraft-specific libraries
