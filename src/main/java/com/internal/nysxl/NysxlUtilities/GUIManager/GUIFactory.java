@@ -10,9 +10,10 @@ import java.util.Map;
  * A builder class for creating and managing a GUI in a Bukkit plugin.
  * It allows for easy setup and manipulation of inventory interfaces with customizable buttons.
  */
-public class GUIBuilder {
+public class GUIFactory {
     private Inventory inv;
     private Map<Integer, Button> buttons;
+    private boolean canTakeItems = false;
 
     /**
      * Creates a GUIBuilder instance with a specified inventory size and title.
@@ -20,7 +21,7 @@ public class GUIBuilder {
      * @param size  The size of the inventory to be created. Must be a multiple of 9.
      * @param title The title of the inventory GUI.
      */
-    public GUIBuilder(int size, String title) {
+    public GUIFactory(int size, String title) {
         this.inv = Bukkit.createInventory(null, size, title);
         this.buttons = new HashMap<>();
     }
@@ -32,7 +33,7 @@ public class GUIBuilder {
      *                This replaces any previously added buttons.
      * @return This GUIBuilder object for chaining method calls.
      */
-    public GUIBuilder withButtons(Map<Integer, Button> buttons) {
+    public GUIFactory withButtons(Map<Integer, Button> buttons) {
         this.buttons = buttons;
         return this;
     }
@@ -43,7 +44,7 @@ public class GUIBuilder {
      * @param slot The inventory slot from which to remove the button.
      * @return This GUIBuilder object for chaining method calls.
      */
-    public GUIBuilder removeButton(int slot) {
+    public GUIFactory removeButton(int slot) {
         this.buttons.remove(slot);
         return this;
     }
@@ -54,7 +55,7 @@ public class GUIBuilder {
      *
      * @return This GUIBuilder object for chaining method calls.
      */
-    public GUIBuilder buildInventory() {
+    public GUIFactory buildInventory() {
         inv.clear(); // Clear the inventory to rebuild it with the current set of buttons
         for (Button button : buttons.values()) {
             if (button != null) {
@@ -87,5 +88,12 @@ public class GUIBuilder {
             return clickedButton.getClicked(slot, runFunction);
         }
         return false;
+    }
+
+    /**
+     * @return returns this inventory
+     */
+    public Inventory getInv() {
+        return inv;
     }
 }

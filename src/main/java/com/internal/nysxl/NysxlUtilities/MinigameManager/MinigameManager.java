@@ -1,6 +1,7 @@
 package com.internal.nysxl.NysxlUtilities.MinigameManager;
 
 import com.internal.nysxl.NysxlUtilities.TeamManager.PlayerTeamManager;
+import com.internal.nysxl.NysxlUtilities.Timers.CountTimer;
 import com.internal.nysxl.NysxlUtilities.Timers.DelayTimer;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,6 +19,7 @@ public class MinigameManager implements GamestateInterface {
 
     private final JavaPlugin plugin;
     private final DelayTimer timer;
+    private final CountTimer timerCounter;
 
     private int timeTillNextGameState;
 
@@ -31,7 +33,9 @@ public class MinigameManager implements GamestateInterface {
         this.plugin = plugin;
         this.gameStates = gameStates;
         this.teamManager = new PlayerTeamManager(plugin);
+
         this.timer = new DelayTimer(plugin);
+        this.timerCounter = new CountTimer(plugin);
     }
 
     /**
@@ -119,5 +123,41 @@ public class MinigameManager implements GamestateInterface {
      */
     public void setGameStateIn(int delay, Gamestate gamestate) {
         timer.StartTimer(() -> this.setGameState(gamestate), this::updateTimeTillNextGameState, delay);
+    }
+
+    /**
+     * starts the timer that keeps track how long the minigame has been running.
+     */
+    public void startMinigameTimeCounter(){
+        if(timer.isCancelled()) {
+            timerCounter.startTime();
+        }
+    }
+
+    /**
+     * stops the timer that counts how long the minigame has been running.
+     */
+    public void stopMinigameTimer(){
+        if(!timer.isCancelled()) {
+            timerCounter.cancel();
+        }
+    }
+
+    /**
+     * adds functions to be run at a given time.
+     * @param time time in seconds (60) for minute (3600) for 1 hour.
+     * @param runnable a runnable function to be executed at the given time.
+     */
+    public void addRunnablesAt(int time, Runnable runnable){
+        timerCounter.addRunnable(time,runnable);
+    }
+
+    /**
+     * returns the amount of time the minigame has been running index values listed below.
+     * @param index [0]seconds [1]minutes [2]hours [3]days [4]weeks [5]months.
+     * @return returns the time based on the index.
+     */
+    public Long getTime(int index){
+        return timerCounter.getCurrentTime()[index];
     }
 }
