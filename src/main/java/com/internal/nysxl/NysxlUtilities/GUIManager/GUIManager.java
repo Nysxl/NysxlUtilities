@@ -1,29 +1,47 @@
 package com.internal.nysxl.NysxlUtilities.GUIManager;
 
-import com.internal.nysxl.NysxlUtilities.Listeners.EntityListeners.EventHandler.InventoryClickHandler;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.List;
+public class GUIManager implements Listener {
 
-public class GUIManager implements InventoryClickHandler {
+    private JavaPlugin plugin;
 
-    private final List<GUIFactory> guis = new ArrayList<>();
-
-    public void addGUI(GUIFactory gui){
-        this.guis.add(gui);
+    /**
+     * the constructor method
+     * @param plugin instance of the main plugin.
+     */
+    public GUIManager(JavaPlugin plugin) {
+        this.plugin = plugin;
+        plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
-    @Override
-    public boolean canHandle(InventoryClickEvent e) {
-        return guis.parallelStream().anyMatch(s->s.getInv().equals(e.getClickedInventory()));
+    /**
+     * handles all Dynamic GUI's and runs the associated action for that button.
+     * @param event the event that occurs when a player clicks inside an inventory
+     */
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if(event.getInventory().getHolder() instanceof DynamicGUI) {
+            event.setCancelled(true);
+            ((DynamicGUI) event.getInventory().getHolder()).handleClick((Player) event.getWhoClicked(), event.getRawSlot());
+        }
     }
 
-    @Override
-    public void handle(InventoryClickEvent e) {
-        GUIFactory gui = guis.parallelStream().filter(s->s.getInv().equals(e.getClickedInventory())).findFirst().orElse(null);
-        if(gui == null) return;
-
-        gui.handleInventoryClick(e.getSlot(), true);
+    /**
+     * handles all Dynamic GUI's and runs the associated onClose action for the gui
+     * @param event the event that occurs when a player closes the inventory
+     */
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent event){
+        if(event.getInventory().getHolder() instanceof  DynamicGUI){
+            ((DynamicGUI) event.getInventory().getHolder()).onClose((Player) event.getPlayer());
+        }
     }
+
+
 }
