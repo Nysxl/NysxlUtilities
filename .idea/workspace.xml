@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
+    <list default="true" id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Button.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/EventHandler/InventoryClickHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/InventoryClickDispatcher.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2cmyOLHSjz6x7rRvvMWIzinusSW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -326,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1708854334094</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
+      <created>1708928736647</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1708928736647</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,7 +393,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="update" />
     <MESSAGE value="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far." />
-    <option name="LAST_COMMIT_MESSAGE" value="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far." />
+    <MESSAGE value="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

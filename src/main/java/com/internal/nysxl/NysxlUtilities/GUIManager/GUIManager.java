@@ -38,10 +38,8 @@ public class GUIManager implements Listener {
      */
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event){
-        if(event.getInventory().getHolder() instanceof  DynamicGUI){
+        if(event.getInventory().getHolder() instanceof DynamicGUI){
             ((DynamicGUI) event.getInventory().getHolder()).onClose((Player) event.getPlayer());
         }
     }
-
-
 }

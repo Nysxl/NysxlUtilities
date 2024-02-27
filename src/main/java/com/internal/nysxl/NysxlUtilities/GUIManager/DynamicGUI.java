@@ -18,6 +18,7 @@ import java.util.function.Consumer;
 public class DynamicGUI implements InventoryHolder {
 
     private final Inventory inv;
+    private ItemStack fillItem;
     private final Map<Integer, DynamicButton> actionButtons = new HashMap<>();
     private Consumer<Player> onCloseAction;
 
@@ -28,6 +29,18 @@ public class DynamicGUI implements InventoryHolder {
      */
     public DynamicGUI(String name, int size){
         this.inv = Bukkit.createInventory(this, size, name);
+    }
+
+    /**
+     *
+     * @param name
+     * @param size
+     * @param fillItem
+     */
+    public DynamicGUI(String name, int size, ItemStack fillItem){
+        this.inv = Bukkit.createInventory(this, size, name);
+        this.fillItem = fillItem;
+        fillItem();
     }
 
     /**
@@ -62,6 +75,25 @@ public class DynamicGUI implements InventoryHolder {
         DynamicButton dynamicButton = new DynamicToggleButton(slot, button, toggledButton, action, toggledAction);
         inv.setItem(slot, button);
         actionButtons.put(slot, dynamicButton);
+    }
+
+    /**
+     * sets the item you want the background of the GUI filled with.
+     * @param item the itemstack you want the inventory filled with.
+     */
+    public void setFillItem(ItemStack item){
+        this.fillItem = item;
+    }
+
+    /**
+     * @return returns this object. not needed for the most part.
+     */
+    public DynamicGUI fillItem(){
+        if(fillItem == null) return null;
+        for(int i = 0; i < getInventory().getSize(); i++){
+            inv.setItem(i, fillItem);
+        }
+        return this;
     }
 
     /**
@@ -120,8 +152,18 @@ public class DynamicGUI implements InventoryHolder {
      * updates the gui with the updated buttons.
      */
     public void updateGUI(){
+        fillItem();
         actionButtons.keySet().parallelStream().
                 forEach(s -> inv.setItem(actionButtons.get(s).
                         getSlot(), actionButtons.get(s).getButton()));
     }
+
+    /**
+     * clears the GUI of all items
+     */
+    public void ClearInventory(){
+        inv.clear();
+    }
+
+
 }

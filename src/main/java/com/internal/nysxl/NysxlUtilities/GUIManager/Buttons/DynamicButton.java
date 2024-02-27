@@ -54,6 +54,7 @@ public class DynamicButton {
 
     // Getters for slot, button, and action for external access
     public int getSlot() { return slot; }
+
     public ItemStack getButton() { return button; }
     public Consumer<Player> getAction() { return action; }
 
