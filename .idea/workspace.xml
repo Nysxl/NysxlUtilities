@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/SearchHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumerReturn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/EventHandler/InventoryClickHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/InventoryClickDispatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Timers/CountTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Timers/CountTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +98,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.internal.nysxl.NysxlUtilities.Utility" />
       <recent name="com.internal.nysxl.NysxlUtilities.TeamManager" />
     </key>
   </component>
@@ -333,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1708928736647</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
+      <created>1709013387234</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709013387234</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

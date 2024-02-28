@@ -5,72 +5,80 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
- * A basic timer class to count how much time has passed since it started,
- * using a simplified approach for time calculation based on the total seconds elapsed.
+ * Manages timed events within a Minecraft plugin, executing specific actions at predetermined intervals.
+ * This timer class utilizes a functional programming approach to schedule and execute tasks based on elapsed time in seconds.
  */
 public class CountTimer extends BukkitRunnable {
 
     private final JavaPlugin plugin;
-
     private long totalSeconds;
-    private final HashMap<Integer, ArrayList<Runnable>> functiosToRunAtTimes = new HashMap<>();
+
+    // A map where keys are elapsed time in seconds and values are lists of tasks (Runnables) to be executed at that time.
+    private final HashMap<Integer, List<Runnable>> functionsToRunAtTimes = new HashMap<>();
 
     /**
-     * Constructs a new CountTimer associated with a specific plugin.
-     * @param plugin The plugin this timer is associated with, used for scheduling tasks.
+     * Constructs a new CountTimer instance associated with a specific plugin. This association allows
+     * the timer to schedule tasks within the plugin's context.
+     *
+     * @param plugin The {@link JavaPlugin} instance this timer is associated with.
      */
-    public CountTimer(JavaPlugin plugin){
+    public CountTimer(JavaPlugin plugin) {
         this.plugin = plugin;
     }
 
     /**
-     * adds runnables with a set time to the hashmap that will be used to run functions at a set time
-     * @param time the amount of seconds that need to have passed for the function to run
-     * @param runnable a runnable that needs to be executed at that time
+     * Registers a {@link Runnable} task to be executed once a specific amount of time has passed.
+     *
+     * @param time     The time in seconds after which the task should be executed.
+     * @param runnable The task to execute, encapsulated in a {@link Runnable}.
+     * @return true if the task is successfully added, indicating the operation was successful.
      */
     public boolean addRunnable(int time, Runnable runnable) {
-        functiosToRunAtTimes.computeIfAbsent(time, k -> new ArrayList<>()).add(runnable);
+        functionsToRunAtTimes.computeIfAbsent(time, k -> new ArrayList<>()).add(runnable);
         return true;
     }
 
     /**
-     * The run method is called each time the timer ticks, incrementing the total seconds count.
-     * checks if there are any functions that need to be run at that given time.
+     * Executed periodically by the Bukkit scheduler. This method increments the internal second counter
+     * and checks if there are any tasks scheduled to run at the current time, executing them if found.
      */
     @Override
     public void run() {
         totalSeconds++;
         runTasksAt((int) totalSeconds);
+        // Schedule the next execution of this task 1 second later, asynchronously.
         this.runTaskLaterAsynchronously(plugin, 20L);
     }
 
     /**
-     * runs the functions at the given time more of an internal method.
-     * @param time time in seconds.
-     * @return returns true if a function is available at the given time and false if there's not.
+     * Executes all tasks scheduled for the given time.
+     *
+     * @param time The current time in seconds to check for scheduled tasks.
+     * @return true if there were tasks scheduled and executed at the given time; false otherwise.
      */
-    private boolean runTasksAt(int time){
-        if(!this.functiosToRunAtTimes.containsKey(time)) return false;
-        functiosToRunAtTimes.get(time).forEach(Runnable::run);
+    private boolean runTasksAt(int time) {
+        if (!functionsToRunAtTimes.containsKey(time)) return false;
+        functionsToRunAtTimes.get(time).forEach(Runnable::run);
         return true;
     }
 
     /**
-     * Starts the timer asynchronously.
+     * Starts the timer, scheduling it to run asynchronously with an initial delay of 1 second.
      */
-    public void startTime(){
-        this.runTaskLaterAsynchronously(plugin, 20L); // Start the task with a 1 second delay.
+    public void startTime() {
+        this.runTaskLaterAsynchronously(plugin, 20L); // 20 ticks = 1 second.
     }
 
     /**
-     * Calculates and returns the total time in a structured format.
-     * @return return a long array. index values as follows [1]seconds [2]minutes [3]hours [4]days [5]weeks [6]months
+     * Computes and returns the elapsed time since the timer started in a structured format.
+     *
+     * @return An array representing the elapsed time, broken down as follows:
+     *         [0] seconds, [1] minutes, [2] hours, [3] days, [4] weeks, [5] months.
      */
     public long[] getCurrentTime() {
-        long[] time = new long[6];
-
         long seconds = totalSeconds % 60;
         long totalMinutes = totalSeconds / 60;
         long minutes = totalMinutes % 60;
@@ -79,23 +87,17 @@ public class CountTimer extends BukkitRunnable {
         long totalDays = totalHours / 24;
         long days = totalDays % 7;
         long weeks = totalDays / 7;
-        long months = weeks / 4;
+        long months = weeks / 4; // Approximation, as the actual length of a month varies.
 
-        time[0] = seconds;
-        time[1] = minutes;
-        time[2] = hours;
-        time[3] = days;
-        time[4] = weeks;
-        time[5] = months;
-
-        return time;
+        return new long[]{seconds, minutes, hours, days, weeks, months};
     }
 
     /**
-     * Overrides the cancel method to ensure that this task is properly cancelled.
+     * Cancels this timer, stopping its execution. Overrides {@link BukkitRunnable}'s cancel method to ensure
+     * that this task is properly cancelled within the Bukkit scheduler.
      */
     @Override
     public void cancel() throws IllegalStateException {
-        super.cancel(); // Call BukkitRunnable's cancel method to cancel this task.
+        super.cancel(); // Ensure proper cancellation of this task.
     }
 }

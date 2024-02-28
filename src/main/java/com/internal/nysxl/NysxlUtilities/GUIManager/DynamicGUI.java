@@ -71,7 +71,7 @@ public class DynamicGUI implements InventoryHolder {
      * @param action  the action to be run when the button is not toggled.
      * @param toggledAction the action to be run when the button is toggled.
      */
-    public void addGUIToggleButton(int slot, ItemStack button, ItemStack toggledButton, Consumer<Player> action, Consumer<Player> toggledAction){
+    public void addToggleButton(int slot, ItemStack button, ItemStack toggledButton, Consumer<Player> action, Consumer<Player> toggledAction){
         DynamicButton dynamicButton = new DynamicToggleButton(slot, button, toggledButton, action, toggledAction);
         inv.setItem(slot, button);
         actionButtons.put(slot, dynamicButton);

@@ -1,12 +1,17 @@
 package com.internal.nysxl.NysxlUtilities;
 
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class main extends JavaPlugin {
 
+        private static Plugin instance;
+
         @Override
         public void onEnable() {
             checkPlaceholderAPI();
+
+            instance = this;
         }
 
         public void checkPlaceholderAPI(){
@@ -18,4 +23,7 @@ public class main extends JavaPlugin {
             }
         }
 
+    public static Plugin getInstance() {
+        return instance;
+    }
 }
