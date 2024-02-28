@@ -1,4 +1,4 @@
-package com.internal.nysxl.NysxlUtilities.Listeners.EntityListeners.EventHandler;
+package com.internal.nysxl.NysxlUtilities.GUIManager.Interfaces;
 
 import org.bukkit.event.player.PlayerInteractEvent;
 

@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/SearchHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumerReturn.java" afterDir="false" />
+    <list default="true" id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/ConfigManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/DataTypes/DataType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConditionEvaluator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConsumerInterfaces/QuadConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/StringFactory/StringFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Timers/CountTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Timers/CountTimer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/EventHandler/InteractHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Interfaces/InteractHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/PlayerInteractDispatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConsumerInterfaces/TriConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumerReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConsumerInterfaces/TriConsumerReturn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +58,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -342,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709013387234</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet">
+      <created>1709093208066</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709093208066</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -403,7 +416,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far." />
     <MESSAGE value="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons" />
+    <MESSAGE value="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

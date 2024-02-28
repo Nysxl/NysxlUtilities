@@ -52,16 +52,23 @@ public class DynamicButton {
         action.accept(p);
     }
 
-    // Getters for slot, button, and action for external access
+    // Getter for slot, button, and action for external access
     public int getSlot() { return slot; }
-
     public ItemStack getButton() { return button; }
     public Consumer<Player> getAction() { return action; }
 
+    /**
+     * sets the itemstack of the button
+     * @param button the ItemStack for the button.
+     */
     public void setButton(ItemStack button) {
         this.button = button;
     }
 
+    /**
+     * sets the action that will be run when the button is clicked.
+     * @param action the action
+     */
     public void setAction(Consumer<Player> action) {
         this.action = action;
     }

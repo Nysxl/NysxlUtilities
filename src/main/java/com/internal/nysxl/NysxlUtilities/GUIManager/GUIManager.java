@@ -5,17 +5,18 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class GUIManager implements Listener {
 
-    private JavaPlugin plugin;
+    private Plugin plugin;
 
     /**
      * the constructor method
      * @param plugin instance of the main plugin.
      */
-    public GUIManager(JavaPlugin plugin) {
+    public GUIManager(Plugin plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
