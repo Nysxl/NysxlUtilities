@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/ConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/DataTypes/DataType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConditionEvaluator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConsumerInterfaces/QuadConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/StringFactory/StringFactory.java" afterDir="false" />
+    <list default="true" id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="Dynamic FileConfiguration added. along with config management">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ItemBuilder/ItemEffectManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ItemBuilder/TriggerTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/NysxlUtilities.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/NysxlUtilities.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/EventHandler/InteractHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Interfaces/InteractHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Listeners/EntityListeners/PlayerInteractDispatcher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConsumerInterfaces/TriConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/TriConsumerReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConsumerInterfaces/TriConsumerReturn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ItemBuilder/ItemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ItemBuilder/ItemFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConditionEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/ConditionEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/StringFactory/StringFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/Utility/StringFactory/StringFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +55,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
         <option value="Enum" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -73,6 +70,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="NysxlUtilities.main/invalid/Minecraft" />
+      <facet id="NysxlUtilities.test/invalid/Minecraft" />
+    </ignored-facets>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -96,10 +99,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/brian/IdeaProjects/NysxlUtilities&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2045977&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.gutterIcons&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -355,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709093208066</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Dynamic FileConfiguration added. along with config management">
+      <created>1709119175872</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1709119175872</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,7 +427,8 @@
     <MESSAGE value="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far." />
     <MESSAGE value="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons" />
     <MESSAGE value="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet" />
+    <MESSAGE value="Dynamic FileConfiguration added. along with config management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dynamic FileConfiguration added. along with config management" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

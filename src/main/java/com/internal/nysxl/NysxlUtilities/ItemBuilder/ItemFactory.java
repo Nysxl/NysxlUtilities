@@ -1,12 +1,15 @@
 package com.internal.nysxl.NysxlUtilities.ItemBuilder;
 
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 
 /**
  * A utility class for building and modifying ItemStacks with fluent API design.
@@ -15,6 +18,8 @@ public class ItemFactory {
 
     private ItemStack itemStack;
     private ItemMeta meta;
+
+    private final Map<TriggerTypes, List<BiConsumer<Player, Object>>> effects = new HashMap<>();
 
     /**
      * Creates an instance of ItemFactory based on an existing ItemStack.
@@ -110,5 +115,15 @@ public class ItemFactory {
     public ItemStack buildItem() {
         itemStack.setItemMeta(meta);
         return itemStack;
+    }
+
+    /**
+     * adds an effect to this ItemStack
+     * @param triggerType Type of event to trigger this effect
+     * @param consumer The effect the player wants to be triggered
+     */
+    public void addEffect(TriggerTypes triggerType, BiConsumer<Player, Object> consumer){
+        if(!effects.containsKey(triggerType)) effects.put(triggerType, new ArrayList<>());
+        effects.get(triggerType).add(consumer);
     }
 }

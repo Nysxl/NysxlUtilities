@@ -13,19 +13,30 @@ import java.util.function.BiFunction;
 
 public class ConditionEvaluator {
 
-    private static final Map<String, BiFunction<Object, Object, Boolean>> conditions = new HashMap<>();
+    private static final Map<ConditionKeys, BiFunction<Object, Object, Boolean>> conditions = new HashMap<>();
+
+    public enum ConditionKeys{
+        HAS_ITEM,
+        HAS_MATERIAL,
+        IS_SNEAKING,
+        IS_FLYING,
+        HAS_PERMISSION,
+        IS_CREATIVE,
+        IS_ADVENTURE,
+        IS_SURVIVAL,
+        IS_SLEEPING,
+    }
 
     static {
-        // Initialize conditions with lambda expressions or method references
-        conditions.put("hasItem", (player, item) -> player instanceof Player && item instanceof ItemStack && ((Player)player).getInventory().contains((ItemStack)item));
-        conditions.put("hasMaterial", (player, material) -> player instanceof Player && material instanceof Material && ((Player)player).getInventory().contains((Material)material));
-        conditions.put("isSneaking", (player, ignored) -> player instanceof Player && ((Player)player).isSneaking());
-        conditions.put("isFlying", (player, ignored) -> player instanceof Player && ((Player)player).isFlying());
-        conditions.put("hasPermission", (player, permission) -> player instanceof Permissible && permission instanceof String && ((Permissible)player).hasPermission((String)permission));
-        conditions.put("playerIsCreator", (player, ignored) -> player instanceof Player && ((Player) player).getGameMode().equals(GameMode.CREATIVE));
-        conditions.put("playerIsAdventure", (player, ignored) -> player instanceof Player && ((Player) player).getGameMode().equals(GameMode.ADVENTURE));
-        conditions.put("playerIsSurvival", (player, ignored) -> player instanceof Player && ((Player) player).getGameMode().equals(GameMode.SURVIVAL));
-        conditions.put("playerIsSleeping", (player, ignored) -> player instanceof Player && ((Player) player).isSleeping());
+        conditions.put(ConditionKeys.HAS_ITEM, (player, item) -> player instanceof Player && item instanceof ItemStack && ((Player)player).getInventory().contains((ItemStack)item));
+        conditions.put(ConditionKeys.HAS_MATERIAL, (player, material) -> player instanceof Player && material instanceof Material && ((Player)player).getInventory().contains((Material)material));
+        conditions.put(ConditionKeys.IS_SNEAKING, (player, ignored) -> player instanceof Player && ((Player)player).isSneaking());
+        conditions.put(ConditionKeys.IS_FLYING, (player, ignored) -> player instanceof Player && ((Player)player).isFlying());
+        conditions.put(ConditionKeys.HAS_PERMISSION, (player, permission) -> player instanceof Permissible && permission instanceof String && ((Permissible)player).hasPermission((String)permission));
+        conditions.put(ConditionKeys.IS_CREATIVE, (player, ignored) -> player instanceof Player && ((Player) player).getGameMode().equals(GameMode.CREATIVE));
+        conditions.put(ConditionKeys.IS_ADVENTURE, (player, ignored) -> player instanceof Player && ((Player) player).getGameMode().equals(GameMode.ADVENTURE));
+        conditions.put(ConditionKeys.IS_SURVIVAL, (player, ignored) -> player instanceof Player && ((Player) player).getGameMode().equals(GameMode.SURVIVAL));
+        conditions.put(ConditionKeys.IS_SLEEPING, (player, ignored) -> player instanceof Player && ((Player) player).isSleeping());
     }
 
     /**
@@ -35,7 +46,7 @@ public class ConditionEvaluator {
      * @param parameter an extra parameter the condition might be after.
      * @return returns true or false.
      */
-    public static boolean evaluate(String conditionKey, Object player, Object parameter) {
+    public static boolean evaluate(ConditionKeys conditionKey, Player player, Object parameter) {
         return conditions.getOrDefault(conditionKey, (p, u) -> false).apply(player, parameter);
     }
 

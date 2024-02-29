@@ -41,7 +41,7 @@ public class StringFactory {
      * @return the instance of the StringBuilder.
      */
     public StringBuilder appendConditional(String conditionKey, Player player, Object parameter, String str1, String str2){
-        if(ConditionEvaluator.evaluate(conditionKey,player,parameter)){
+        if(ConditionEvaluator.evaluate(ConditionEvaluator.ConditionKeys.valueOf(conditionKey.toUpperCase()),player,parameter)){
             string.append(str1);
         } else {
             string.append(str2);

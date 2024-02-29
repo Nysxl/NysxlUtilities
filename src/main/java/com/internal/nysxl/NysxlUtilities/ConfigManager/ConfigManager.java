@@ -63,6 +63,33 @@ public class ConfigManager {
     }
 
     /**
+     * Retrieves the configuration for the specified file name.
+     * If the configuration file does not exist, it will be created.
+     * @param fileName The name of the configuration file to retrieve.
+     * @param directoryPath the directory path of the configuration file.
+     * @return The FileConfiguration object associated with the given file name.
+     */
+    public FileConfiguration getConfig(String directoryPath, String fileName) {
+        File configFile = new File(plugin.getDataFolder() + File.separator + directoryPath, fileName);
+        if (!configFile.exists()) {
+            configFile.getParentFile().mkdirs();
+            try {
+                configFile.createNewFile();
+            } catch (IOException e) {
+                plugin.getLogger().severe("Could not create config file " + fileName);
+            }
+
+        }
+
+        FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+        String mapKey = directoryPath + "/" + fileName;
+        configMap.put(mapKey, config);
+        configFileMap.put(mapKey, configFile);
+
+        return config;
+    }
+
+    /**
      * Retrieves a configuration value from a specified path within a configuration file. This method allows for type-safe retrieval of configuration values by specifying the expected return type along with a default value to be returned in case the path does not exist or the data type does not match.
      *
      * @param <T> The expected return type of the configuration value. This type should match the type parameter.
@@ -95,6 +122,26 @@ public class ConfigManager {
             configMap.get(fileName).save(configFileMap.get(fileName));
         } catch (IOException e) {
             plugin.getLogger().severe("Could not save config to " + fileName);
+        }
+    }
+
+    /**
+     * Saves the configuration to the file for the specified file name.
+     * If the configuration or file does not exist, a warning will be logged.
+     * @param directoryPath the directory path to save the configuration file to.
+     * @param fileName The name of the configuration file to save.
+     */
+    public void saveConfig(String directoryPath, String fileName) {
+        String mapKey = directoryPath + "/" + fileName;
+        if (!configMap.containsKey(mapKey) || !configFileMap.containsKey(mapKey)) {
+            plugin.getLogger().warning("Config file '" + fileName + "' in directory '" + directoryPath + "' not found.");
+            return;
+        }
+
+        try {
+            configMap.get(mapKey).save(configFileMap.get(mapKey));
+        } catch (IOException e) {
+            plugin.getLogger().severe("Could not save config to " + directoryPath + "/" + fileName);
         }
     }
 
