@@ -1,11 +1,13 @@
 package com.internal.nysxl.NysxlUtilities.ItemBuilder;
 
+import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -115,6 +117,21 @@ public class ItemFactory {
     public ItemStack buildItem() {
         itemStack.setItemMeta(meta);
         return itemStack;
+    }
+
+    /**
+     * builds the item with a players skull texture.
+     * @param player the players skull to copy.
+     * @return returns the ItemStack with the players head texture.
+     */
+    public ItemStack withSkullOfPlayer(Player player) {
+        if (!this.itemStack.getType().equals(Material.PLAYER_HEAD)) return null;
+        SkullMeta skullMeta = (SkullMeta) this.itemStack.getItemMeta();
+        if (skullMeta != null) {
+            skullMeta.setOwningPlayer(player);
+            this.itemStack.setItemMeta(skullMeta);
+        }
+        return this.itemStack;
     }
 
     /**

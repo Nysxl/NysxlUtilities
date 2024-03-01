@@ -19,7 +19,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6' // Update Gson version
     implementation 'org.joml:joml:1.10.2' // Update JOML version
     implementation 'net.md-5:bungeecord-chat:1.16-R0.4' // Update BungeeCord version, adjust as needed
-    implementation 'org.yaml:snakeyaml:1.28' // Update SnakeYAML version
+    implementation 'org.yaml:snakeyaml:1.28' // Update SnakeYAML versio
 }
 
 sourceSets {
