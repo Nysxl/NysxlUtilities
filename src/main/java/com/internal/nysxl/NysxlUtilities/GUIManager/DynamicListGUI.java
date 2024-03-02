@@ -98,6 +98,16 @@ public class DynamicListGUI extends DynamicGUI {
     }
 
     /**
+     * updates the list prior to opening the gui for the player.
+     * @param player The player for whom the GUI should be opened.
+     */
+    @Override
+    public void open(Player player){
+        updateList();
+        super.open(player);
+    }
+
+    /**
      * initializes the search function in the gui.
      */
     private void initializeCompass() {
