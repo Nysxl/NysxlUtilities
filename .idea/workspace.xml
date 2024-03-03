@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.0.7 BUG FIXES">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,17 +116,17 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle --refresh-keys" />
-      <command value="gradle clean" />
       <command value="gradle assemble" />
       <command value="gradle compileJava" />
       <command value="gradle wrapper" />
       <command value="gradle build" />
       <command value="gradle --refresh-dependencies" />
       <command value="gradle jar" />
+      <command value="gradle clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.NysxlUtilities [jar]">
-    <configuration name="NysxlUtilities [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.NysxlUtilities [clean]">
+    <configuration name="NysxlUtilities [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -136,7 +137,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -230,11 +231,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.NysxlUtilities [clean]" />
         <item itemvalue="Gradle.NysxlUtilities [jar]" />
         <item itemvalue="Gradle.NysxlUtilities" />
         <item itemvalue="Gradle.NysxlUtilities [wrapper]" />
         <item itemvalue="Gradle.NysxlUtilities [compileJava]" />
-        <item itemvalue="Gradle.NysxlUtilities [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -541,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709459889845</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="V1.0.7 BUG FIXES">
+      <created>1709460661931</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1709460661931</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -34,12 +34,10 @@ sourceSets {
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            groupId = 'com.internal.nysxl'
+            artifactId = 'NysxlUtilities' // Replace with your actual artifact ID
+            version = '1.0-SNAPSHOT'
             from components.java
-        }
-    }
-    repositories {
-        maven {
-            url "$buildDir/repo"
         }
     }
 }
