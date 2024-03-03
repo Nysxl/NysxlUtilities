@@ -14,15 +14,16 @@ import java.util.Map;
 public class CommandManager implements CommandExecutor, TabCompleter {
     private final Map<String, CommandInterface> commands = new HashMap<>();
 
+    private final JavaPlugin plugin;
+
     public CommandManager(JavaPlugin plugin) {
-        // Example of registering a command
-        // registerCommand("example", new ExampleCommand());
+        this.plugin = plugin;
     }
 
     public void registerCommand(String name, CommandInterface command) {
         commands.put(name.toLowerCase(), command);
-        JavaPlugin.getProvidingPlugin(getClass()).getCommand(name).setExecutor(this);
-        JavaPlugin.getProvidingPlugin(getClass()).getCommand(name).setTabCompleter(this);
+        plugin.getCommand(name).setExecutor(this);
+        plugin.getCommand(name).setTabCompleter(this);
     }
 
     @Override
