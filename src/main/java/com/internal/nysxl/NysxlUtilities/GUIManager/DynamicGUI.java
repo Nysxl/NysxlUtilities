@@ -87,6 +87,16 @@ public class DynamicGUI implements InventoryHolder {
     }
 
     /**
+     * adds a button to the gui.
+     * @param slot The slot where the item should appear.
+     * @param button The DynamicButton to be added.
+     */
+    public void addButton(int slot, DynamicButton button){
+        inv.setItem(slot, button.getButton());
+        actionButtons.put(slot, button);
+    }
+
+    /**
      * adds a toggle button to the gui.
      * @param slot the slot the toggle button should be added to.
      * @param button the itemstack to be placed in the GUI as a button when not toggled.
