@@ -240,7 +240,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="535f96a0-3c16-435e-8eac-1c1df1e54310" name="Changes" comment="" />
+      <changelist id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="Bug fixes to CommandManager" />
       <created>1708731017013</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -477,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709436879588</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Bug fixes to CommandManager">
+      <created>1709437817920</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1709437817920</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
