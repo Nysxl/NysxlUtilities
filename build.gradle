@@ -3,24 +3,24 @@ plugins {
     id 'maven-publish'
 }
 
-group 'com.github.Nysxl'
-version '1.1' // Ensure this matches your project versioning scheme
+group 'NysxlUtilities'
+version '1.1'
 
 repositories {
-    mavenCentral()
+    mavenCentral() // Primary repository
     google()
-    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
-    maven { url 'https://libraries.minecraft.net/' }
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' } // For Spigot and Minecraft dependencies
+    maven { url 'https://libraries.minecraft.net/' } // Minecraft-specific libraries
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' } // For snapshot versions
 }
 
 dependencies {
     implementation 'org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT'
-    implementation 'com.google.guava:guava:30.1-jre'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'org.joml:joml:1.10.2'
-    implementation 'net.md-5:bungeecord-chat:1.16-R0.4'
-    implementation 'org.yaml:snakeyaml:1.28'
+    implementation 'com.google.guava:guava:30.1-jre' // Update Guava version
+    implementation 'com.google.code.gson:gson:2.8.6' // Update Gson version
+    implementation 'org.joml:joml:1.10.2' // Update JOML version
+    implementation 'net.md-5:bungeecord-chat:1.16-R0.4' // Update BungeeCord version, adjust as needed
+    implementation 'org.yaml:snakeyaml:1.28' // Update SnakeYAML versio
 }
 
 sourceSets {
@@ -31,38 +31,15 @@ sourceSets {
     }
 }
 
-// Define the sourceJar and javadocJar tasks before using them
-task sourceJar(type: Jar) {
-    from sourceSets.main.allSource
-    archiveClassifier = 'sources'
-}
-
-task javadocJar(type: Jar) {
-    from javadoc
-    archiveClassifier = 'javadoc'
-}
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-
-            groupId = 'com.github.Nysxl'
-            artifactId = 'NysxlUtilities'
-            version = '1.1' // Version updated to match the project version
-
-            // Properly reference the tasks defined above
-            artifact sourceJar
-            artifact javadocJar
         }
     }
     repositories {
         maven {
-            url = 'https://your.repository.url' // Make sure to replace this with the actual repository URL
-            credentials {
-                username = 'yourUsername' // Replace with your repository username
-                password = 'yourPassword' // Replace with your repository password
-            }
+            url "$buildDir/repo"
         }
     }
 }
