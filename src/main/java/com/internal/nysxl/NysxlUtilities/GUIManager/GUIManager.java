@@ -3,10 +3,10 @@ package com.internal.nysxl.NysxlUtilities.GUIManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class GUIManager implements Listener {
 
@@ -28,8 +28,10 @@ public class GUIManager implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
         if(event.getInventory().getHolder() instanceof DynamicGUI) {
-            event.setCancelled(true);
-            ((DynamicGUI) event.getInventory().getHolder()).handleClick((Player) event.getWhoClicked(), event.getRawSlot());
+            if(event.getAction().equals(InventoryAction.PICKUP_ALL)) {
+                event.setCancelled(true);
+                ((DynamicGUI) event.getInventory().getHolder()).handleClick((Player) event.getWhoClicked(), event.getRawSlot());
+            }
         }
     }
 

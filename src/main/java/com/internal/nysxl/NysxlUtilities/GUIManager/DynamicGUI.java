@@ -86,6 +86,15 @@ public class DynamicGUI implements InventoryHolder {
     }
 
     /**
+     * removes an action button from the list
+     * @param slot the slot of the action button to be removed
+     */
+    public void removeActionButton(int slot){
+        this.actionButtons.remove(slot);
+        this.getInventory().setItem(slot,null);
+    }
+
+    /**
      * @return returns this object. not needed for the most part.
      */
     public DynamicGUI fillItem(){

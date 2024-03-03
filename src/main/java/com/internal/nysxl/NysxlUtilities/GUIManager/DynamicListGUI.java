@@ -1,13 +1,20 @@
 package com.internal.nysxl.NysxlUtilities.GUIManager;
 
 import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicButton;
+import com.internal.nysxl.NysxlUtilities.Listeners.EntityListeners.SingleUseChatListener;
 import com.internal.nysxl.NysxlUtilities.Utility.SearchHandler;
 import com.internal.nysxl.NysxlUtilities.main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +30,9 @@ import java.util.stream.Collectors;
 public class DynamicListGUI extends DynamicGUI {
 
     // List of slot indexes in the GUI where list items will be displayed.
-    private List<Integer> listSlots = Arrays.asList(10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43);
+    //private List<Integer> listSlots = new ArrayList<>(Arrays.asList(10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43));
+    private List<Integer> listSlots = new ArrayList<>(Arrays.asList(10,11,12,13,14,15,16));
+    private List<Integer> availableSlots = listSlots;
     // The current page number the GUI is displaying.
     private int currentPage = 0;
     // The list of all DynamicButtons representing items added to the GUI.
@@ -74,7 +83,7 @@ public class DynamicListGUI extends DynamicGUI {
      */
     private void globalInitialize(){
         this.itemsPerPage = listSlots.size();
-        initializeNavigationButtons();
+        updateNavigationButtonVisibility();
         initializeCompass();
         initializeResetSearchButton();
     }
@@ -92,9 +101,22 @@ public class DynamicListGUI extends DynamicGUI {
     /**
      * Initializes the navigation buttons ('Next' and 'Previous') for the GUI, enabling page navigation.
      */
-    private void initializeNavigationButtons() {
-        addButton(nextButtonSlot, nextButton, player -> navigatePages(1));
-        addButton(prevButtonSlot, prevButton, player -> navigatePages(-1));
+    private void updateNavigationButtonVisibility() {
+        int totalPages = (int) Math.ceil((double) displayItems.size() / itemsPerPage);
+
+        // Show "Previous" button if not on the first page
+        if (currentPage > 0) {
+            addButton(prevButtonSlot, prevButton, player -> navigatePages(-1));
+        } else {
+            super.removeActionButton(prevButtonSlot);
+        }
+
+        // Show "Next" button if there are more pages ahead
+        if (currentPage < totalPages - 1) {
+            addButton(nextButtonSlot, nextButton, player -> navigatePages(1));
+        } else {
+            super.removeActionButton(nextButtonSlot);
+        }
     }
 
     /**
@@ -108,7 +130,7 @@ public class DynamicListGUI extends DynamicGUI {
     }
 
     /**
-     * initializes the search function in the gui.
+     * initializes the search button in the gui.
      */
     private void initializeCompass() {
         ItemStack searchCompass = new ItemStack(Material.COMPASS);
@@ -118,15 +140,33 @@ public class DynamicListGUI extends DynamicGUI {
             searchCompass.setItemMeta(meta);
         }
 
-        addButton(searchCompassSlot, searchCompass, player -> {
-            SearchHandler.startSearchInteraction(player, (p, searchTerm) -> {
-                p.closeInventory();
-                Bukkit.getScheduler().runTask(main.getInstance(), () -> {
-                    this.searchItems(searchTerm);
-                    this.open(p);
-                });
+        addButton(searchCompassSlot, searchCompass, this::initiateSearch);
+    }
+
+    /**
+     * initializes the search function in the gui.
+     */
+    // Example method in your GUI class
+    public void initiateSearch(Player player) {
+        player.closeInventory(); // Close the inventory to allow chat input
+        // Define what to do with the search input
+        Consumer<String> onSearchInput = searchTerm -> {
+            // This code block will be executed asynchronously after receiving the chat input
+            Bukkit.getScheduler().runTask(main.getInstance(), () -> {
+                searchItems(searchTerm); // Apply the search filter
+                open(player); // Reopen the GUI with the search results
             });
-        });
+        };
+
+        BukkitRunnable scheduled = (BukkitRunnable) new BukkitRunnable() {
+            @Override
+            public void run() {
+                player.sendMessage("Search");
+                new SingleUseChatListener(main.getInstance(), player, onSearchInput);
+            }
+        }.runTask(main.getInstance());
+
+        scheduled.run();
     }
 
     /**
@@ -136,19 +176,12 @@ public class DynamicListGUI extends DynamicGUI {
      */
     public void navigatePages(int direction) {
         int newPage = currentPage + direction;
-        if (newPage >= 0 && newPage * itemsPerPage < displayItems.size()) {
+        // Ensure the new page number is within valid range before updating
+        if (newPage >= 0 && newPage <= getMaxPage()) {
             currentPage = newPage;
-            updateList();
-            updateNavigationButtonVisibility();
+            updateList(); // Refresh the list items for the new page
+            updateNavigationButtonVisibility(); // Update the visibility of navigation buttons
         }
-    }
-
-    /**
-     * Dynamically updates the visibility of the next and previous buttons based on the current page and the total number of items.
-     */
-    private void updateNavigationButtonVisibility() {
-        getInventory().setItem(prevButtonSlot, currentPage > 0 ? prevButton : new ItemStack(Material.AIR));
-        getInventory().setItem(nextButtonSlot, (currentPage + 1) * itemsPerPage < displayItems.size() ? nextButton : new ItemStack(Material.AIR));
     }
 
     /**
@@ -165,9 +198,11 @@ public class DynamicListGUI extends DynamicGUI {
     /**
      * Updates the list display based on the current page and the number of items per page, showing only the relevant items.
      */
-    public void updateList() {
+    private void updateList() {
         clearList();
-        getCurrentPageItems().forEach(this::addButtonToSlot);
+        List<DynamicButton> currentPageItems = getCurrentPageItems();
+        currentPageItems.forEach(this::addButtonToSlot);
+        updateNavigationButtonVisibility();
     }
 
      /**
@@ -175,10 +210,11 @@ public class DynamicListGUI extends DynamicGUI {
      *
      * @param button The DynamicButton to add to the GUI.
      */
-    private void addButtonToSlot(DynamicButton button) {
-        listSlots.stream().limit(1).forEach(slot -> addButton(slot, button.getButton(), button.getAction()));
-        listSlots.remove(0); // Remove the slot to maintain pagination correctness
-    }
+     private void addButtonToSlot(DynamicButton button) {
+         availableSlots.stream().limit(1).forEach(slot -> addButton(slot, button.getButton(), button.getAction()));
+         availableSlots.remove(0); // This line is problematic for repeated pagination.
+     }
+
 
     /**
      * Retrieves the list of items that should be displayed on the current page.
@@ -216,8 +252,20 @@ public class DynamicListGUI extends DynamicGUI {
      */
     private boolean itemMatchesQuery(ItemStack item, String query) {
         ItemMeta meta = item.getItemMeta();
+
+        if(item.getType().equals(Material.PLAYER_HEAD)) {
+            SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
+            if(skullMeta != null){
+                if(skullMeta.getOwnerProfile().getName().toLowerCase().contains(query)){
+                    return true;
+                }
+            }
+        }
+
         if (meta != null) {
-            if (meta.getDisplayName().toLowerCase().contains(query)) return true;
+            if (meta.getDisplayName().toLowerCase().contains(query)){
+                return true;
+            }
             if (meta.hasLore()) {
                 for (String loreLine : meta.getLore()) {
                     if (loreLine.toLowerCase().contains(query)) return true;
@@ -234,6 +282,14 @@ public class DynamicListGUI extends DynamicGUI {
         displayItems = new ArrayList<>(listItems); // Reset displayItems to the original list
         currentPage = 0; // Optionally reset to the first page
         updateList(); // Update the GUI display
+    }
+
+    /**
+     * gets the maximum number of pages for this gui.
+     * @return returns the number of pages.
+     */
+    private int getMaxPage() {
+        return (int) Math.ceil((double) displayItems.size() / itemsPerPage) - 1;
     }
 
     /**
@@ -257,6 +313,13 @@ public class DynamicListGUI extends DynamicGUI {
      * Clears the list display slots, preparing them for an updated list of items.
      */
     private void clearList() {
-        listSlots.forEach(slot -> getInventory().setItem(slot, new ItemStack(Material.AIR)));
+        availableSlots = new ArrayList<>(listSlots);
+
+        listSlots.forEach(s -> {
+            super.removeActionButton(s);
+        });
+
+
     }
+
 }
