@@ -1,12 +1,14 @@
 package com.internal.nysxl.NysxlUtilities.GUIManager;
 
+import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicButton;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.plugin.Plugin;
+
+import java.util.Optional;
 
 public class GUIManager implements Listener {
 
@@ -27,13 +29,37 @@ public class GUIManager implements Listener {
      */
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if(event.getInventory().getHolder() instanceof DynamicGUI) {
-            if(event.getAction().equals(InventoryAction.PICKUP_ALL)) {
-                event.setCancelled(true);
-                ((DynamicGUI) event.getInventory().getHolder()).handleClick((Player) event.getWhoClicked(), event.getRawSlot());
-            }
-        }
+        if (!(event.getInventory().getHolder() instanceof DynamicGUI)) return;
+
+        event.setCancelled(true); // Always cancel the event to prevent default behavior.
+
+        Player player = (Player) event.getWhoClicked();
+        int slot = event.getRawSlot();
+
+        // Using Optional to avoid explicit null checks.
+        Optional.ofNullable(event.getInventory().getHolder())
+                .filter(holder -> holder instanceof DynamicGUI)
+                .map(holder -> (DynamicGUI) holder)
+                .ifPresent(gui -> {
+                    // Determine the ClickType using a helper method
+                    determineClickType(event).ifPresent(clickType ->
+                            gui.executeAction(player, clickType, slot));
+                });
     }
+
+    private Optional<DynamicButton.ClickType> determineClickType(InventoryClickEvent event) {
+        if (event.isShiftClick()) {
+            return Optional.of(event.isLeftClick() ? DynamicButton.ClickType.SHIFT_LEFT_CLICK : DynamicButton.ClickType.SHIFT_RIGHT_CLICK);
+        } else if (event.isLeftClick()) {
+            return Optional.of(DynamicButton.ClickType.LEFT_CLICK);
+        } else if (event.isRightClick()) {
+            return Optional.of(DynamicButton.ClickType.RIGHT_CLICK);
+        } else if (event.getClick().isMouseClick()) {
+            return Optional.of(DynamicButton.ClickType.MIDDLE_CLICK);
+        }
+        return Optional.empty();
+    }
+
 
     /**
      * handles all Dynamic GUI's and runs the associated onClose action for the gui

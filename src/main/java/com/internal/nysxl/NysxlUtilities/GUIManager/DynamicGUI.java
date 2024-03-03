@@ -8,8 +8,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -55,10 +54,34 @@ public class DynamicGUI implements InventoryHolder {
      * Adds a button to the GUI at the specified slot with an associated action.
      * @param slot The slot where the item should appear.
      * @param button The ItemStack to be placed in the GUI as a button.
+     * @param actions The action to be executed when the button is pressed.
+     */
+    public void addButton(int slot, ItemStack button, EnumMap<DynamicButton.ClickType, Consumer<Player>> actions){
+        DynamicButton dynamicButton = new DynamicButton(slot, button, actions);
+        inv.setItem(slot, button);
+        actionButtons.put(slot, dynamicButton);
+    }
+
+    /**
+     * Adds a button to the GUI at the specified slot with an associated action.
+     * @param slot The slot where the item should appear.
+     * @param button The ItemStack to be placed in the GUI as a button.
+     * @param action The action to be executed when the button is pressed.
+     */
+    public void addButton(int slot, ItemStack button, DynamicButton.ClickType clickType, Consumer<Player> action){
+        DynamicButton dynamicButton = new DynamicButton(slot, button, clickType, action);
+        inv.setItem(slot, button);
+        actionButtons.put(slot, dynamicButton);
+    }
+
+    /**
+     * Adds a button to the GUI at the specified slot with an associated action.
+     * @param slot The slot where the item should appear.
+     * @param button The ItemStack to be placed in the GUI as a button.
      * @param action The action to be executed when the button is pressed.
      */
     public void addButton(int slot, ItemStack button, Consumer<Player> action){
-        DynamicButton dynamicButton = new DynamicButton(slot, button, action);
+        DynamicButton dynamicButton = new DynamicButton(slot, button, DynamicButton.ClickType.LEFT_CLICK, action);
         inv.setItem(slot, button);
         actionButtons.put(slot, dynamicButton);
     }
@@ -118,7 +141,7 @@ public class DynamicGUI implements InventoryHolder {
         }
 
         Consumer<Player> openTargetGUI = player -> player.openInventory(targetGUI.getInventory());
-        addButton(slot, button, openTargetGUI);
+        addButton(slot, button, DynamicButton.ClickType.LEFT_CLICK, openTargetGUI);
         return true;
     }
 
@@ -140,9 +163,9 @@ public class DynamicGUI implements InventoryHolder {
      * @param whoClicked The player who clicked inside the inventory.
      * @param slot The slot that was clicked.
      */
-    public void handleClick(Player whoClicked, int slot){
+    public void executeAction(Player whoClicked, DynamicButton.ClickType clickType, int slot){
         if (actionButtons.containsKey(slot)) {
-            actionButtons.get(slot).runAction(whoClicked);
+            actionButtons.get(slot).executeAction(whoClicked, clickType);
             updateGUI();
         }
     }
@@ -173,6 +196,5 @@ public class DynamicGUI implements InventoryHolder {
     public void ClearInventory(){
         inv.clear();
     }
-
 
 }

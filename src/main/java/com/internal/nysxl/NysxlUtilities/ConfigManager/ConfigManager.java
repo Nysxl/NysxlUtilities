@@ -161,8 +161,8 @@ public class ConfigManager {
     }
 
     /**
-     * Reloads all configurations that are currently managed by this ConfigManager.
-     */
+     *Reloads all configurations that are currently managed by this ConfigManager.
+     **/
     public void reloadAllConfigs() {
         for (String fileName : configFileMap.keySet()) {
             reloadConfig(fileName);

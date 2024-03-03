@@ -2,19 +2,14 @@ package com.internal.nysxl.NysxlUtilities.GUIManager;
 
 import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicButton;
 import com.internal.nysxl.NysxlUtilities.Listeners.EntityListeners.SingleUseChatListener;
-import com.internal.nysxl.NysxlUtilities.Utility.SearchHandler;
 import com.internal.nysxl.NysxlUtilities.main;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -106,14 +101,14 @@ public class DynamicListGUI extends DynamicGUI {
 
         // Show "Previous" button if not on the first page
         if (currentPage > 0) {
-            addButton(prevButtonSlot, prevButton, player -> navigatePages(-1));
+            addButton(prevButtonSlot, prevButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(-1));
         } else {
             super.removeActionButton(prevButtonSlot);
         }
 
         // Show "Next" button if there are more pages ahead
         if (currentPage < totalPages - 1) {
-            addButton(nextButtonSlot, nextButton, player -> navigatePages(1));
+            addButton(nextButtonSlot, nextButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(1));
         } else {
             super.removeActionButton(nextButtonSlot);
         }
@@ -140,7 +135,7 @@ public class DynamicListGUI extends DynamicGUI {
             searchCompass.setItemMeta(meta);
         }
 
-        addButton(searchCompassSlot, searchCompass, this::initiateSearch);
+        addButton(searchCompassSlot, searchCompass, DynamicButton.ClickType.LEFT_CLICK, this::initiateSearch);
     }
 
     /**
@@ -190,8 +185,19 @@ public class DynamicListGUI extends DynamicGUI {
      * @param item   The ItemStack to be added as a list item.
      * @param action The action to be performed when the item is clicked by a player.
      */
+    public void addItem(ItemStack item, DynamicButton.ClickType clicktype, Consumer<Player> action) {
+        listItems.add(new DynamicButton(0, item, clicktype, action));
+        displayItems = new ArrayList<>(listItems); // Ensure displayItems matches listItems
+    }
+
+    /**
+     * Adds an item to the GUI list with a specified click action.
+     *
+     * @param item   The ItemStack to be added as a list item.
+     * @param action The action to be performed when the item is clicked by a player.
+     */
     public void addItem(ItemStack item, Consumer<Player> action) {
-        listItems.add(new DynamicButton(0, item, action));
+        listItems.add(new DynamicButton(0, item, DynamicButton.ClickType.LEFT_CLICK, action));
         displayItems = new ArrayList<>(listItems); // Ensure displayItems matches listItems
     }
 
@@ -211,10 +217,9 @@ public class DynamicListGUI extends DynamicGUI {
      * @param button The DynamicButton to add to the GUI.
      */
      private void addButtonToSlot(DynamicButton button) {
-         availableSlots.stream().limit(1).forEach(slot -> addButton(slot, button.getButton(), button.getAction()));
+         availableSlots.stream().limit(1).forEach(slot -> addButton(slot, button.getButton(), button.getClickActions()));
          availableSlots.remove(0); // This line is problematic for repeated pagination.
      }
-
 
     /**
      * Retrieves the list of items that should be displayed on the current page.
@@ -303,7 +308,7 @@ public class DynamicListGUI extends DynamicGUI {
             resetSearchButton.setItemMeta(meta);
         }
 
-        addButton(resetBarrierSlot, resetSearchButton, player -> {
+        addButton(resetBarrierSlot, resetSearchButton, DynamicButton.ClickType.LEFT_CLICK, player -> {
             resetSearch();
             open(player);
         });

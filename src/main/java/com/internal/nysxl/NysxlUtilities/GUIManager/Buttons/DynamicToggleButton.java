@@ -26,7 +26,7 @@ public class DynamicToggleButton extends DynamicButton {
      * @param toggledAction  The action to execute in the toggled state.
      */
     public DynamicToggleButton(int slot, ItemStack button, ItemStack toggledButton, Consumer<Player> action, Consumer<Player> toggledAction) {
-        super(slot, button, action);
+        super(slot, button, ClickType.LEFT_CLICK ,action);
         this.originalButton = button;
         this.toggledButton = toggledButton;
         this.originalAction = action;
@@ -39,10 +39,10 @@ public class DynamicToggleButton extends DynamicButton {
      * @param player The player who interacted with the button.
      */
     @Override
-    public void runAction(Player player){
+    public void executeAction(Player player, ClickType clickType){
         isToggled = !isToggled;
         updateButtonState();
-        super.runAction(player);
+        super.executeAction(player, clickType);
     }
 
     /**
@@ -51,10 +51,10 @@ public class DynamicToggleButton extends DynamicButton {
     private void updateButtonState() {
         if(isToggled) {
             super.setButton(toggledButton);
-            super.setAction(toggledAction);
+            super.setAction(ClickType.LEFT_CLICK, toggledAction);
         } else {
             super.setButton(originalButton);
-            super.setAction(originalAction);
+            super.setAction(ClickType.LEFT_CLICK, originalAction);
         }
     }
 }
