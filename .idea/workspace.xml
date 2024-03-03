@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.0.7 BUG FIXES">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +79,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2cmyOLHSjz6x7rRvvMWIzinusSW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -115,17 +114,17 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="gradle --refresh-keys" />
       <command value="gradle assemble" />
       <command value="gradle compileJava" />
       <command value="gradle wrapper" />
       <command value="gradle build" />
-      <command value="gradle --refresh-dependencies" />
       <command value="gradle jar" />
       <command value="gradle clean" />
+      <command value="gradle --refresh-dependencies" />
+      <command value="gradle --refresh-keys" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.NysxlUtilities [clean]">
+  <component name="RunManager" selected="Gradle.NysxlUtilities">
     <configuration name="NysxlUtilities [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -563,7 +562,28 @@
       <option name="project" value="LOCAL" />
       <updated>1709507969936</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="V1.0.7 BUG FIXES">
+      <created>1709508427809</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1709508427809</updated>
+    </task>
+    <task id="LOCAL-00047" summary="V1.0.7 BUG FIXES">
+      <created>1709508514231</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1709508514231</updated>
+    </task>
+    <task id="LOCAL-00048" summary="V1.0.7 BUG FIXES">
+      <created>1709508522700</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1709508522700</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -630,6 +650,7 @@
     <MESSAGE value="Small changes. fixed the plugin.yml, added some extra features for killcollect plugin" />
     <MESSAGE value="Bug fixes, and added a command Manager" />
     <MESSAGE value="Bug fixes to CommandManager" />
+    <MESSAGE value="V1.0.8 extra click-type functionality for buttons" />
     <MESSAGE value="V1.0.7 BUG FIXES" />
     <option name="LAST_COMMIT_MESSAGE" value="V1.0.7 BUG FIXES" />
   </component>
