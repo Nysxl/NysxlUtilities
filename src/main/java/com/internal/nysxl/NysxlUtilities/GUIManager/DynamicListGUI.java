@@ -194,6 +194,17 @@ public class DynamicListGUI extends DynamicGUI {
      * Adds an item to the GUI list with a specified click action.
      *
      * @param item   The ItemStack to be added as a list item.
+     * @param button The button to be added.
+     */
+    public void addItem(ItemStack item, DynamicButton button) {
+        listItems.add(button);
+        displayItems = new ArrayList<>(listItems); // Ensure displayItems matches listItems
+    }
+
+    /**
+     * Adds an item to the GUI list with a specified click action.
+     *
+     * @param item   The ItemStack to be added as a list item.
      * @param action The action to be performed when the item is clicked by a player.
      */
     public void addItem(ItemStack item, Consumer<Player> action) {
