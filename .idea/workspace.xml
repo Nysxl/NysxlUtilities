@@ -10,15 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.0.7 BUG FIXES">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/Utils/SerializationUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/ConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -506,7 +499,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709449197195</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="V1.0.7 BUG FIXES">
+      <created>1709458516142</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1709458516142</updated>
+    </task>
+    <task id="LOCAL-00038" summary="V1.0.7 BUG FIXES">
+      <created>1709458648443</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1709458648443</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
