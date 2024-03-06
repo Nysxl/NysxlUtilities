@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class main extends JavaPlugin {
         private ConfigManager configManager;
         private static Plugin instance;
+        private static GUIManager guiManager;
 
     /**
      * registers all events and config files when the plugin starts.
@@ -34,8 +35,8 @@ public class main extends JavaPlugin {
      * registers all listener events.
      */
     public void registerEvents(){
-            this.getServer().getPluginManager().registerEvents(new GUIManager(instance), this);
-        }
+        guiManager = new GUIManager(this);
+    }
 
     /**
      * all functinos that should run when the server/plugin shuts down

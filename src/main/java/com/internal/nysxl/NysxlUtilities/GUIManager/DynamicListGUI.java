@@ -141,7 +141,6 @@ public class DynamicListGUI extends DynamicGUI {
     /**
      * initializes the search function in the gui.
      */
-    // Example method in your GUI class
     public void initiateSearch(Player player) {
         player.closeInventory(); // Close the inventory to allow chat input
         // Define what to do with the search input
@@ -153,15 +152,14 @@ public class DynamicListGUI extends DynamicGUI {
             });
         };
 
-        BukkitRunnable scheduled = (BukkitRunnable) new BukkitRunnable() {
+        // Schedule the task without needing to cast the result
+        new BukkitRunnable() {
             @Override
             public void run() {
                 player.sendMessage("Search");
                 new SingleUseChatListener(main.getInstance(), player, onSearchInput);
             }
         }.runTask(main.getInstance());
-
-        scheduled.run();
     }
 
     /**
@@ -215,7 +213,7 @@ public class DynamicListGUI extends DynamicGUI {
     /**
      * Updates the list display based on the current page and the number of items per page, showing only the relevant items.
      */
-    private void updateList() {
+    public void updateList() {
         clearList();
         List<DynamicButton> currentPageItems = getCurrentPageItems();
         currentPageItems.forEach(this::addButtonToSlot);
