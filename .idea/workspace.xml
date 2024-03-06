@@ -9,8 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.0.7 BUG FIXES">
+    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.0.8 Click-Type functionality added to DynamicButtons">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/NysxlUtilities-1.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/NysxlUtilities-1.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,11 +132,11 @@
       <command value="gradle assemble" />
       <command value="gradle compileJava" />
       <command value="gradle wrapper" />
-      <command value="gradle jar" />
       <command value="gradle clean" />
       <command value="gradle --refresh-dependencies" />
       <command value="gradle --refresh-keys" />
       <command value="gradle check" />
+      <command value="gradle jar" />
       <command value="gradle build" />
     </option>
   </component>
@@ -231,10 +246,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.NysxlUtilities [build]" />
-        <item itemvalue="Gradle.NysxlUtilities [check]" />
         <item itemvalue="Gradle.NysxlUtilities [clean]" />
+        <item itemvalue="Gradle.NysxlUtilities [check]" />
         <item itemvalue="Gradle.NysxlUtilities [jar]" />
+        <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities" />
       </list>
     </recent_temporary>
@@ -247,27 +262,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00001" summary="test">
-      <created>1708816697440</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1708816697440</updated>
-    </task>
-    <task id="LOCAL-00002" summary="test">
-      <created>1708817535121</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1708817535121</updated>
-    </task>
-    <task id="LOCAL-00003" summary="test">
-      <created>1708818093849</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1708818093849</updated>
     </task>
     <task id="LOCAL-00004" summary="test">
       <created>1708818101608</created>
@@ -584,7 +578,35 @@
       <option name="project" value="LOCAL" />
       <updated>1709508522700</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="V1.0.8 Click-Type functionality added to DynamicButtons">
+      <created>1709508916371</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1709508916371</updated>
+    </task>
+    <task id="LOCAL-00050" summary="V1.0.8 Click-Type functionality added to DynamicButtons">
+      <created>1709508920062</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1709508920063</updated>
+    </task>
+    <task id="LOCAL-00051" summary="V1.0.8 Click-Type functionality added to DynamicButtons">
+      <created>1709508960283</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1709508960283</updated>
+    </task>
+    <task id="LOCAL-00052" summary="V1.0.8 Click-Type functionality added to DynamicButtons">
+      <created>1709508963552</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1709508963552</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -653,7 +675,8 @@
     <MESSAGE value="Bug fixes to CommandManager" />
     <MESSAGE value="V1.0.8 extra click-type functionality for buttons" />
     <MESSAGE value="V1.0.7 BUG FIXES" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.0.7 BUG FIXES" />
+    <MESSAGE value="V1.0.8 Click-Type functionality added to DynamicButtons" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.0.8 Click-Type functionality added to DynamicButtons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

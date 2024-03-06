@@ -1,6 +1,7 @@
 package com.internal.nysxl.NysxlUtilities.GUIManager;
 
 import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicButton;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,7 +31,6 @@ public class GUIManager implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
         if (!(event.getInventory().getHolder() instanceof DynamicGUI)) return;
-
         event.setCancelled(true); // Always cancel the event to prevent default behavior.
 
         Player player = (Player) event.getWhoClicked();
