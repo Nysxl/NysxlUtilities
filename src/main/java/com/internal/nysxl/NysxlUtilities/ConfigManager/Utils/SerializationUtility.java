@@ -8,10 +8,10 @@ import java.util.function.Function;
 
 public class SerializationUtility {
     // Improved serialize method with generic type support and error handling
-    public <T> Map<String, Object> serialize(String path, Function<T, Map<String, Object>> serializer, T... items) {
+    public <T> Map<String, Object> serialize(String path, Function<T, Map<String, Object>> serializer, T... object) {
         Map<String, Object> serializedData = new HashMap<>();
         List<Map<String, Object>> serializedItems = new ArrayList<>();
-        for (T item : items) {
+        for (T item : object) {
             try {
                 serializedItems.add(serializer.apply(item));
             } catch (Exception e) {

@@ -25,8 +25,8 @@ import java.util.stream.Collectors;
 public class DynamicListGUI extends DynamicGUI {
 
     // List of slot indexes in the GUI where list items will be displayed.
-    //private List<Integer> listSlots = new ArrayList<>(Arrays.asList(10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43));
-    private List<Integer> listSlots = new ArrayList<>(Arrays.asList(10,11,12,13,14,15,16));
+    private List<Integer> listSlots = new ArrayList<>(Arrays.asList(10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43));
+    //private List<Integer> listSlots = new ArrayList<>(Arrays.asList(10,11,12,13,14,15,16));
     private List<Integer> availableSlots = listSlots;
     // The current page number the GUI is displaying.
     private int currentPage = 0;
