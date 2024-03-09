@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.5" />
+    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,9 +233,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.NysxlUtilities [jar]" />
-        <item itemvalue="Gradle.NysxlUtilities [check]" />
-        <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities [clean]" />
+        <item itemvalue="Gradle.NysxlUtilities [build]" />
+        <item itemvalue="Gradle.NysxlUtilities [check]" />
         <item itemvalue="Gradle.NysxlUtilities" />
       </list>
     </recent_temporary>
@@ -245,13 +248,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00013" summary="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far.">
-      <created>1708854334094</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1708854334094</updated>
     </task>
     <task id="LOCAL-00014" summary="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
       <created>1708928736647</created>
@@ -589,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709973211415</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="V1.1.5">
+      <created>1709973263732</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1709973263732</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
