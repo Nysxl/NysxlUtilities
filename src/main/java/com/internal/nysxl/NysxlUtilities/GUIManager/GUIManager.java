@@ -30,11 +30,11 @@ public class GUIManager implements Listener {
      */
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if (!(event.getInventory().getHolder() instanceof DynamicGUI)) return;
-        event.setCancelled(true); // Always cancel the event to prevent default behavior.
-
+        if (!(event.getInventory().getHolder() instanceof DynamicGUI dynamicGUI)) return;
+        dynamicGUI.onClick(event);
         Player player = (Player) event.getWhoClicked();
         int slot = event.getRawSlot();
+
 
         // Using Optional to avoid explicit null checks.
         Optional.ofNullable(event.getInventory().getHolder())

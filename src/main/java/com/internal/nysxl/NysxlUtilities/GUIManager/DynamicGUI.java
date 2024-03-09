@@ -4,6 +4,7 @@ import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicButton;
 import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicToggleButton;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -191,6 +192,14 @@ public class DynamicGUI implements InventoryHolder {
     }
 
     /**
+     * custom inventory click event.
+     * @param e
+     */
+    public void onClick(InventoryClickEvent e){
+        e.setCancelled(true);
+    }
+
+    /**
      * updates the gui with the updated buttons.
      */
     public void updateGUI(){
@@ -207,4 +216,11 @@ public class DynamicGUI implements InventoryHolder {
         inv.clear();
     }
 
+    /**
+     * gets action buttons from this gui
+     * @return returns a map of slot numbers and buttons for this gui.
+     */
+    public Map<Integer, DynamicButton> getActionButtons() {
+        return actionButtons;
+    }
 }

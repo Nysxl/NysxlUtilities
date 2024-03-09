@@ -29,10 +29,12 @@ public class CommandManager implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         CommandInterface cmd = commands.get(command.getName().toLowerCase());
-        if(cmd.hasPermission(sender)){
+
+        if(!cmd.hasPermission(sender)){
             sender.sendMessage("Incorrect Permissions.");
             return true;
-        };
+        }
+
         if (cmd != null) {
             return cmd.onCommand(sender, args);
         }

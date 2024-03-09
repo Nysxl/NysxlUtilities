@@ -33,6 +33,11 @@ public class ItemFactory {
         this.meta = itemStack.getItemMeta(); // Automatically fetch ItemMeta
     }
 
+    public ItemFactory(Material material){
+        this.itemStack = new ItemStack(material);
+        this.meta = itemStack.getItemMeta();
+    }
+
     /**
      * Sets or replaces the ItemMeta of the ItemStack.
      *
@@ -53,6 +58,22 @@ public class ItemFactory {
     public ItemFactory setLore(String... lore) {
         if (meta != null) {
             meta.setLore(Arrays.asList(lore));
+        }
+        return this;
+    }
+
+    /**
+     * adds the lore to the existing lore.
+     * @param lore The lore lines to add
+     * @return This ItemFactory instance for chaining.
+     */
+    public ItemFactory addLore(String... lore){
+        if(meta != null){
+            if(meta.getLore() == null){
+                setLore(lore);
+            } else {
+                meta.getLore().addAll(List.of(lore));
+            }
         }
         return this;
     }
@@ -124,14 +145,14 @@ public class ItemFactory {
      * @param player the players skull to copy.
      * @return returns the ItemStack with the players head texture.
      */
-    public ItemStack withSkullOfPlayer(Player player) {
+    public ItemFactory withSkullOfPlayer(Player player) {
         if (!this.itemStack.getType().equals(Material.PLAYER_HEAD)) return null;
         SkullMeta skullMeta = (SkullMeta) this.itemStack.getItemMeta();
         if (skullMeta != null) {
             skullMeta.setOwningPlayer(player);
             this.itemStack.setItemMeta(skullMeta);
         }
-        return this.itemStack;
+        return this;
     }
 
     /**
@@ -139,8 +160,10 @@ public class ItemFactory {
      * @param triggerType Type of event to trigger this effect
      * @param consumer The effect the player wants to be triggered
      */
-    public void addEffect(TriggerTypes triggerType, BiConsumer<Player, Object> consumer){
+    @Deprecated
+    public ItemFactory addEffect(TriggerTypes triggerType, BiConsumer<Player, Object> consumer){
         if(!effects.containsKey(triggerType)) effects.put(triggerType, new ArrayList<>());
         effects.get(triggerType).add(consumer);
+        return this;
     }
 }
