@@ -126,7 +126,7 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.NysxlUtilities [jar]">
+  <component name="RunManager" selected="Gradle.NysxlUtilities [build]">
     <configuration name="NysxlUtilities [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -232,9 +232,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities [jar]" />
         <item itemvalue="Gradle.NysxlUtilities [clean]" />
-        <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities [check]" />
         <item itemvalue="Gradle.NysxlUtilities" />
       </list>
@@ -248,20 +248,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
-      <created>1708928736647</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1708928736647</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Better Dynamic GUIBuilder and manager. aswell as support for Buttons and ToggleButtons">
-      <created>1709013387234</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1709013387234</updated>
     </task>
     <task id="LOCAL-00016" summary="Fully functioning search function. and reset function for DynamicListGUI, also added Triconsumers... thought id need them but i didnt.. yet">
       <created>1709093208066</created>
@@ -592,7 +578,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709973263732</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="V1.1.5">
+      <created>1709973346045</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1709973346045</updated>
+    </task>
+    <task id="LOCAL-00064" summary="V1.1.5">
+      <created>1709973351259</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1709973351259</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
