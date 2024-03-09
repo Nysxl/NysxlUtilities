@@ -9,22 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.4">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicInteractiveGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/CommandManager/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/CommandManager/CommandManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/CommandManager/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/CommandManager/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/GUIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ItemBuilder/ItemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ItemBuilder/ItemFactory.java" afterDir="false" />
-    </list>
+    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -260,20 +245,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00011" summary="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far.">
-      <created>1708829298333</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1708829298333</updated>
-    </task>
-    <task id="LOCAL-00012" summary="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far.">
-      <created>1708829306872</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1708829306872</updated>
     </task>
     <task id="LOCAL-00013" summary="ItemBuilder, GUIBuilder and doc comments have been added to all functions thus far.">
       <created>1708854334094</created>
@@ -604,7 +575,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709795881078</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="V1.1.5">
+      <created>1709973133910</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1709973133911</updated>
+    </task>
+    <task id="LOCAL-00061" summary="V1.1.5">
+      <created>1709973211415</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1709973211415</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -678,7 +663,8 @@
     <MESSAGE value="V1.0.9" />
     <MESSAGE value="V1.1.3" />
     <MESSAGE value="V1.1.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.1.4" />
+    <MESSAGE value="V1.1.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.1.5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
