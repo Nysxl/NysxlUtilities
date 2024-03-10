@@ -276,6 +276,10 @@ public class DynamicListGUI extends DynamicGUI {
             }
         }
 
+        if(item.getType().toString().toLowerCase().contains(query.toLowerCase())){
+            return true;
+        }
+
         if (meta != null) {
             if (meta.getDisplayName().toLowerCase().contains(query)){
                 return true;

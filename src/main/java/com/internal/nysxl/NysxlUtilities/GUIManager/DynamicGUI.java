@@ -2,7 +2,9 @@ package com.internal.nysxl.NysxlUtilities.GUIManager;
 
 import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicButton;
 import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicToggleButton;
+import com.internal.nysxl.NysxlUtilities.ItemBuilder.ItemFactory;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -18,7 +20,8 @@ import java.util.function.Consumer;
 public class DynamicGUI implements InventoryHolder {
 
     private final Inventory inv;
-    private ItemStack fillItem;
+    private ItemStack fillItem = new ItemFactory(Material.BLACK_STAINED_GLASS_PANE).setItemDisplayName("").buildItem();
+    private ArrayList<Integer> fillSlots = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,48,49,50,51,52,53));
     private final Map<Integer, DynamicButton> actionButtons = new HashMap<>();
     private Consumer<Player> onCloseAction;
 
@@ -132,9 +135,8 @@ public class DynamicGUI implements InventoryHolder {
      * @return returns this object. not needed for the most part.
      */
     public DynamicGUI fillItem(){
-        if(fillItem == null) return null;
-        for(int i = 0; i < getInventory().getSize(); i++){
-            inv.setItem(i, fillItem);
+        for(Integer slot : fillSlots){
+            inv.setItem(slot, fillItem);
         }
         return this;
     }
@@ -161,6 +163,7 @@ public class DynamicGUI implements InventoryHolder {
      * @param player The player for whom the GUI should be opened.
      */
     public void open(Player player){
+        updateGUI();
         player.openInventory(inv);
     }
 
