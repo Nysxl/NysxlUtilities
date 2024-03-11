@@ -9,10 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.6.1&#10;&#10;more accessible methods">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.6.1&#10;&#10;more accessible methods" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,7 +123,7 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.NysxlUtilities [clean]">
+  <component name="RunManager" selected="Gradle.NysxlUtilities [jar]">
     <configuration name="NysxlUtilities [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -232,8 +229,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.NysxlUtilities [clean]" />
         <item itemvalue="Gradle.NysxlUtilities [jar]" />
+        <item itemvalue="Gradle.NysxlUtilities [clean]" />
         <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities [check]" />
         <item itemvalue="Gradle.NysxlUtilities" />
@@ -248,13 +245,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Dynamic FileConfiguration added. along with config management">
-      <created>1709200141756</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1709200141756</updated>
     </task>
     <task id="LOCAL-00024" summary="Getting jitpack to work">
       <created>1709202997506</created>
@@ -592,7 +582,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710132449700</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="V1.1.6.1&#10;&#10;more accessible methods">
+      <created>1710132535905</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1710132535905</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
