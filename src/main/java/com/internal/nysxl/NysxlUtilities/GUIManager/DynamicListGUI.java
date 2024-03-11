@@ -240,6 +240,7 @@ public class DynamicListGUI extends DynamicGUI {
      */
     public void removeItem(DynamicButton button){
         listItems.parallelStream().filter(s -> s.equals(button)).findFirst().ifPresent(listItems::remove);
+        displayItems.parallelStream().filter(s->s.equals(button)).findFirst().ifPresent(displayItems::remove);
     }
 
     /**
@@ -362,7 +363,7 @@ public class DynamicListGUI extends DynamicGUI {
     /**
      * Clears the list display slots, preparing them for an updated list of items.
      */
-    private void clearList() {
+    public void clearList() {
         availableSlots = new ArrayList<>(listSlots);
 
         listSlots.forEach(s -> {
