@@ -1,6 +1,7 @@
 package com.internal.nysxl.NysxlUtilities.GUIManager;
 
 import com.internal.nysxl.NysxlUtilities.GUIManager.Buttons.DynamicButton;
+import com.internal.nysxl.NysxlUtilities.ItemBuilder.ItemFactory;
 import com.internal.nysxl.NysxlUtilities.Listeners.EntityListeners.SingleUseChatListener;
 import com.internal.nysxl.NysxlUtilities.main;
 import org.bukkit.Bukkit;
@@ -41,9 +42,9 @@ public class DynamicListGUI extends DynamicGUI {
     // Slot index for the 'Previous' navigation button.
     private final int prevButtonSlot = 48;
     // ItemStack representing the 'Next' navigation button.
-    private final ItemStack nextButton = new ItemStack(Material.ARROW);
+    private final ItemStack nextButton = new ItemFactory(Material.ARROW).setItemDisplayName("Next Page").buildItem();
     // ItemStack representing the 'Previous' navigation button.
-    private final ItemStack prevButton = new ItemStack(Material.ARROW);
+    private final ItemStack prevButton = new ItemFactory(Material.ARROW).setItemDisplayName("Prev Page").buildItem();
     // ItemStack slot representing the 'Search' button.
     private final int searchCompassSlot = 49;
     // ItemStack slot representing the 'Reset' button.
@@ -211,6 +212,37 @@ public class DynamicListGUI extends DynamicGUI {
     }
 
     /**
+     * removes the button from the list
+     * @param item the item the button is made of
+     * @param action the action that the button is meant to execute
+     */
+    public void removeItem(ItemStack item, Consumer<Player> action){
+        listItems.parallelStream().filter(s -> s.getButton().isSimilar(item)).
+                filter(s -> s.getClickActions().get(DynamicButton.ClickType.LEFT_CLICK).
+                        equals(action)).findFirst().ifPresent(listItems::remove);
+    }
+
+    /**
+     * removes the button from the list
+     * @param item the item the button is made of
+     * @param action the action that the button is meant to execute
+     * @param clicktype the type of click to look for
+     */
+    public void removeItem(ItemStack item, DynamicButton.ClickType clicktype, Consumer<Player> action){
+        listItems.parallelStream().filter(s -> s.getButton().isSimilar(item)).
+                filter(s -> s.getClickActions().get(clicktype).
+                        equals(action)).findFirst().ifPresent(listItems::remove);
+    }
+
+    /**
+     * removes the button from the list
+     * @param button the button to remove
+     */
+    public void removeItem(DynamicButton button){
+        listItems.parallelStream().filter(s -> s.equals(button)).findFirst().ifPresent(listItems::remove);
+    }
+
+    /**
      * Updates the list display based on the current page and the number of items per page, showing only the relevant items.
      */
     public void updateList() {
@@ -336,8 +368,78 @@ public class DynamicListGUI extends DynamicGUI {
         listSlots.forEach(s -> {
             super.removeActionButton(s);
         });
-
-
     }
 
+
+    /**
+     * Getters and setters
+     */
+
+    public List<Integer> getListSlots() {
+        return listSlots;
+    }
+
+    public void setListSlots(List<Integer> listSlots) {
+        this.listSlots = listSlots;
+    }
+
+    public List<Integer> getAvailableSlots() {
+        return availableSlots;
+    }
+
+    public void setAvailableSlots(List<Integer> availableSlots) {
+        this.availableSlots = availableSlots;
+    }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public List<DynamicButton> getListItems() {
+        return listItems;
+    }
+
+    public List<DynamicButton> getDisplayItems() {
+        return displayItems;
+    }
+
+    public void setDisplayItems(List<DynamicButton> displayItems) {
+        this.displayItems = displayItems;
+    }
+
+    public int getItemsPerPage() {
+        return itemsPerPage;
+    }
+
+    public void setItemsPerPage(int itemsPerPage) {
+        this.itemsPerPage = itemsPerPage;
+    }
+
+    public int getNextButtonSlot() {
+        return nextButtonSlot;
+    }
+
+    public int getPrevButtonSlot() {
+        return prevButtonSlot;
+    }
+
+    public ItemStack getNextButton() {
+        return nextButton;
+    }
+
+    public ItemStack getPrevButton() {
+        return prevButton;
+    }
+
+    public int getSearchCompassSlot() {
+        return searchCompassSlot;
+    }
+
+    public int getResetBarrierSlot() {
+        return resetBarrierSlot;
+    }
 }
