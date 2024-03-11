@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'NysxlUtilities'
-version '1.1.5.1'
+version '1.1.6'
 
 repositories {
     mavenCentral() // Primary repository

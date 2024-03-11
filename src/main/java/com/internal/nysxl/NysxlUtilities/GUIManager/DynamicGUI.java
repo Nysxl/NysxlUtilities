@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 public class DynamicGUI implements InventoryHolder {
 
     private final Inventory inv;
-    private ItemStack fillItem = new ItemFactory(Material.BLACK_STAINED_GLASS_PANE).setItemDisplayName("").buildItem();
+    private ItemStack fillItem = new ItemFactory(Material.BLACK_STAINED_GLASS_PANE).setItemDisplayName(" ").buildItem();
     private ArrayList<Integer> fillSlots = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,48,49,50,51,52,53));
     private final Map<Integer, DynamicButton> actionButtons = new HashMap<>();
     private Consumer<Player> onCloseAction;
@@ -225,5 +225,30 @@ public class DynamicGUI implements InventoryHolder {
      */
     public Map<Integer, DynamicButton> getActionButtons() {
         return actionButtons;
+    }
+
+
+    /**
+     * Getters and setters
+     */
+
+    public Inventory getInv() {
+        return inv;
+    }
+
+    public ItemStack getFillItem() {
+        return fillItem;
+    }
+
+    public ArrayList<Integer> getFillSlots() {
+        return fillSlots;
+    }
+
+    public void setFillSlots(ArrayList<Integer> fillSlots) {
+        this.fillSlots = fillSlots;
+    }
+
+    public Consumer<Player> getOnCloseAction() {
+        return onCloseAction;
     }
 }
