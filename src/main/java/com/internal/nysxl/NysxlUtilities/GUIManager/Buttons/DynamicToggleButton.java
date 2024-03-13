@@ -25,8 +25,8 @@ public class DynamicToggleButton extends DynamicButton {
      * @param action         The action to execute in the default state.
      * @param toggledAction  The action to execute in the toggled state.
      */
-    public DynamicToggleButton(int slot, ItemStack button, ItemStack toggledButton, Consumer<Player> action, Consumer<Player> toggledAction) {
-        super(slot, button, ClickType.LEFT_CLICK ,action);
+    public DynamicToggleButton(int slot, String id, ItemStack button, ItemStack toggledButton, Consumer<Player> action, Consumer<Player> toggledAction) {
+        super(id, slot, button, ClickType.LEFT_CLICK ,action);
         this.originalButton = button;
         this.toggledButton = toggledButton;
         this.originalAction = action;

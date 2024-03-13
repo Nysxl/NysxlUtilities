@@ -12,9 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -32,9 +30,9 @@ public class DynamicListGUI extends DynamicGUI {
     // The current page number the GUI is displaying.
     private int currentPage = 0;
     // The list of all DynamicButtons representing items added to the GUI.
-    private final List<DynamicButton> listItems = new ArrayList<>();
+    private final Map<String, DynamicButton> listItems = new HashMap<>();
     // A temporary list of DynamicButtons used for display purposes, allowing for filtering without altering the original list.
-    private List<DynamicButton> displayItems = new ArrayList<>();
+    private Map<String, DynamicButton> displayItems = new HashMap<>();
     // The number of items to display per page.
     private int itemsPerPage;
     // Slot index for the 'Next' navigation button.
@@ -102,14 +100,14 @@ public class DynamicListGUI extends DynamicGUI {
 
         // Show "Previous" button if not on the first page
         if (currentPage > 0) {
-            addButton(prevButtonSlot, prevButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(-1));
+            addButton(prevButtonSlot, "prevButton", prevButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(-1));
         } else {
             super.removeActionButton(prevButtonSlot);
         }
 
         // Show "Next" button if there are more pages ahead
         if (currentPage < totalPages - 1) {
-            addButton(nextButtonSlot, nextButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(1));
+            addButton(nextButtonSlot, "nextButton", nextButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(1));
         } else {
             super.removeActionButton(nextButtonSlot);
         }
@@ -136,7 +134,7 @@ public class DynamicListGUI extends DynamicGUI {
             searchCompass.setItemMeta(meta);
         }
 
-        addButton(searchCompassSlot, searchCompass, DynamicButton.ClickType.LEFT_CLICK, this::initiateSearch);
+        addButton(searchCompassSlot, "search", searchCompass, DynamicButton.ClickType.LEFT_CLICK, this::initiateSearch);
     }
 
     /**
@@ -185,8 +183,9 @@ public class DynamicListGUI extends DynamicGUI {
      * @param action The action to be performed when the item is clicked by a player.
      */
     public void addItem(ItemStack item, DynamicButton.ClickType clicktype, Consumer<Player> action) {
-        listItems.add(new DynamicButton(0, item, clicktype, action));
-        displayItems = new ArrayList<>(listItems); // Ensure displayItems matches listItems
+        String uuid = UUID.randomUUID().toString();
+        listItems.put(uuid, new DynamicButton(uuid, 0, item, clicktype, action));
+        displayItems = new HashMap<>(listItems);
     }
 
     /**
@@ -196,8 +195,8 @@ public class DynamicListGUI extends DynamicGUI {
      * @param button The button to be added.
      */
     public void addItem(ItemStack item, DynamicButton button) {
-        listItems.add(button);
-        displayItems = new ArrayList<>(listItems); // Ensure displayItems matches listItems
+        listItems.put(button.getId(), button);
+        displayItems = new HashMap<>(listItems);
     }
 
     /**
@@ -207,40 +206,19 @@ public class DynamicListGUI extends DynamicGUI {
      * @param action The action to be performed when the item is clicked by a player.
      */
     public void addItem(ItemStack item, Consumer<Player> action) {
-        listItems.add(new DynamicButton(0, item, DynamicButton.ClickType.LEFT_CLICK, action));
-        displayItems = new ArrayList<>(listItems); // Ensure displayItems matches listItems
+        String uuid = UUID.randomUUID().toString();
+        listItems.put(uuid, new DynamicButton(uuid, 0, item, DynamicButton.ClickType.LEFT_CLICK, action));
+        displayItems = new HashMap<>(listItems); // Ensure displayItems matches listItems
     }
 
     /**
      * removes the button from the list
-     * @param item the item the button is made of
-     * @param action the action that the button is meant to execute
+     * @param Id the id of the button
      */
-    public void removeItem(ItemStack item, Consumer<Player> action){
-        listItems.parallelStream().filter(s -> s.getButton().isSimilar(item)).
-                filter(s -> s.getClickActions().get(DynamicButton.ClickType.LEFT_CLICK).
-                        equals(action)).findFirst().ifPresent(listItems::remove);
-    }
-
-    /**
-     * removes the button from the list
-     * @param item the item the button is made of
-     * @param action the action that the button is meant to execute
-     * @param clicktype the type of click to look for
-     */
-    public void removeItem(ItemStack item, DynamicButton.ClickType clicktype, Consumer<Player> action){
-        listItems.parallelStream().filter(s -> s.getButton().isSimilar(item)).
-                filter(s -> s.getClickActions().get(clicktype).
-                        equals(action)).findFirst().ifPresent(listItems::remove);
-    }
-
-    /**
-     * removes the button from the list
-     * @param button the button to remove
-     */
-    public void removeItem(DynamicButton button){
-        listItems.parallelStream().filter(s -> s.equals(button)).findFirst().ifPresent(listItems::remove);
-        displayItems.parallelStream().filter(s->s.equals(button)).findFirst().ifPresent(displayItems::remove);
+    public boolean removeItem(String Id){
+        if(!listItems.containsKey(Id)) return false;
+        listItems.remove(Id);
+        return true;
     }
 
     /**
@@ -259,7 +237,7 @@ public class DynamicListGUI extends DynamicGUI {
      * @param button The DynamicButton to add to the GUI.
      */
      private void addButtonToSlot(DynamicButton button) {
-         availableSlots.stream().limit(1).forEach(slot -> addButton(slot, button.getButton(), button.getClickActions()));
+         availableSlots.stream().limit(1).forEach(slot -> addButton(slot, button.getId(), button.getButton(), button.getClickActions()));
          availableSlots.remove(0); // This line is problematic for repeated pagination.
      }
 
@@ -270,7 +248,10 @@ public class DynamicListGUI extends DynamicGUI {
      */
     private List<DynamicButton> getCurrentPageItems() {
         int start = currentPage * itemsPerPage;
-        return displayItems.stream()
+
+        // Convert displayItems values to a stream, then apply skip and limit for pagination.
+        // Ensure that displayItems is a LinkedHashMap if order is important.
+        return displayItems.values().stream()
                 .skip(start)
                 .limit(itemsPerPage)
                 .collect(Collectors.toList());
@@ -283,12 +264,16 @@ public class DynamicListGUI extends DynamicGUI {
      */
     public void searchItems(String query) {
         String lowerCaseQuery = query.toLowerCase();
-        displayItems = listItems.stream()
-                .filter(item -> itemMatchesQuery(item.getButton(), lowerCaseQuery))
-                .collect(Collectors.toList());
+
+        // Update displayItems to only include items that match the search query
+        displayItems = listItems.entrySet().stream()
+                .filter(entry -> itemMatchesQuery(entry.getValue().getButton(), lowerCaseQuery))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
         currentPage = 0;
         updateList();
     }
+
 
     /**
      * Checks if an ItemStack matches the search query by checking its name and lore.
@@ -330,7 +315,7 @@ public class DynamicListGUI extends DynamicGUI {
      * Resets the search filter and displays the original list of items.
      */
     public void resetSearch() {
-        displayItems = new ArrayList<>(listItems); // Reset displayItems to the original list
+        displayItems = listItems;// Reset displayItems to the original list
         currentPage = 0; // Optionally reset to the first page
         updateList(); // Update the GUI display
     }
@@ -354,7 +339,7 @@ public class DynamicListGUI extends DynamicGUI {
             resetSearchButton.setItemMeta(meta);
         }
 
-        addButton(resetBarrierSlot, resetSearchButton, DynamicButton.ClickType.LEFT_CLICK, player -> {
+        addButton(resetBarrierSlot, "resetSearch", resetSearchButton, DynamicButton.ClickType.LEFT_CLICK, player -> {
             resetSearch();
             open(player);
         });
@@ -400,15 +385,15 @@ public class DynamicListGUI extends DynamicGUI {
         this.currentPage = currentPage;
     }
 
-    public List<DynamicButton> getListItems() {
+    public Map<String, DynamicButton> getListItems() {
         return listItems;
     }
 
-    public List<DynamicButton> getDisplayItems() {
+    public Map<String, DynamicButton> getDisplayItems() {
         return displayItems;
     }
 
-    public void setDisplayItems(List<DynamicButton> displayItems) {
+    public void setDisplayItems(Map<String, DynamicButton> displayItems) {
         this.displayItems = displayItems;
     }
 

@@ -9,7 +9,8 @@ import java.util.function.Consumer;
 
 public class DynamicButton {
 
-    private final int slot;
+    private final String id;
+    private int slot;
     private ItemStack button;
     private final EnumMap<ClickType, Consumer<Player>> clickActions;
 
@@ -27,19 +28,22 @@ public class DynamicButton {
      * @param slot The slot index in the inventory where the button is placed.
      * @param button The visual representation of the button as an ItemStack.
      */
-    public DynamicButton(int slot, ItemStack button) {
+    public DynamicButton(String id, int slot, ItemStack button) {
+        this.id = id;
         this.slot = slot;
         this.button = button;
         this.clickActions = new EnumMap<>(ClickType.class);
     }
 
-    public DynamicButton(int slot, ItemStack button, EnumMap<ClickType, Consumer<Player>> actions) {
+    public DynamicButton(String id, int slot, ItemStack button, EnumMap<ClickType, Consumer<Player>> actions) {
+        this.id = id;
         this.slot = slot;
         this.button = button;
         this.clickActions = actions;
     }
 
-    public DynamicButton(int slot, ItemStack button, ClickType clickType, Consumer<Player> actions) {
+    public DynamicButton(String id, int slot, ItemStack button, ClickType clickType, Consumer<Player> actions) {
+        this.id = id;
         this.slot = slot;
         this.button = button;
         this.clickActions = new EnumMap<>(ClickType.class);
@@ -115,5 +119,13 @@ public class DynamicButton {
      */
     public void setButton(ItemStack button) {
         this.button = button;
+    }
+
+    /**
+     * get the button's id
+     * @return get the buttons id.
+     */
+    public String getId() {
+        return id;
     }
 }
