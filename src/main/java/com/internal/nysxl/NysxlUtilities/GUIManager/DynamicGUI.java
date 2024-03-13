@@ -177,11 +177,13 @@ public class DynamicGUI implements InventoryHolder {
      * @param whoClicked The player who clicked inside the inventory.
      * @param slot The slot that was clicked.
      */
-    public void executeAction(Player whoClicked, DynamicButton.ClickType clickType, int slot){
+    public String executeAction(Player whoClicked, DynamicButton.ClickType clickType, int slot){
         if (actionButtons.containsKey(slot)) {
-            actionButtons.get(slot).executeAction(whoClicked, clickType);
+            String id = actionButtons.get(slot).executeAction(whoClicked, clickType);
             updateGUI();
+            return id;
         }
+        return null;
     }
 
     /**

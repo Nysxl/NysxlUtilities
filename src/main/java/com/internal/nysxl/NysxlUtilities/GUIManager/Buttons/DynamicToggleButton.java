@@ -39,10 +39,10 @@ public class DynamicToggleButton extends DynamicButton {
      * @param player The player who interacted with the button.
      */
     @Override
-    public void executeAction(Player player, ClickType clickType){
+    public String executeAction(Player player, ClickType clickType){
         isToggled = !isToggled;
         updateButtonState();
-        super.executeAction(player, clickType);
+        return super.executeAction(player, clickType);
     }
 
     /**

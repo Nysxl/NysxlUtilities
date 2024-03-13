@@ -9,21 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.6.1&#10;&#10;more accessible methods">
+    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class">
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton$ClickType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton$ClickType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/NysxlUtilities-1.1.6.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/NysxlUtilities-1.1.6.1.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,11 +121,11 @@
       <command value="gradle assemble" />
       <command value="gradle compileJava" />
       <command value="gradle wrapper" />
-      <command value="gradle clean" />
       <command value="gradle --refresh-dependencies" />
       <command value="gradle --refresh-keys" />
-      <command value="gradle check" />
       <command value="gradle jar" />
+      <command value="gradle check" />
+      <command value="gradle clean" />
       <command value="gradle build" />
     </option>
   </component>
@@ -244,9 +235,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities [jar]" />
         <item itemvalue="Gradle.NysxlUtilities [clean]" />
-        <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities [check]" />
         <item itemvalue="Gradle.NysxlUtilities" />
       </list>
@@ -260,20 +251,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Getting jitpack to work">
-      <created>1709269904456</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1709269904456</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Getting jitpack to work">
-      <created>1709323821379</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1709323821379</updated>
     </task>
     <task id="LOCAL-00028" summary="Getting jitpack to work">
       <created>1709347298699</created>
@@ -604,7 +581,21 @@
       <option name="project" value="LOCAL" />
       <updated>1710149033437</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class">
+      <created>1710316814085</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1710316814086</updated>
+    </task>
+    <task id="LOCAL-00076" summary="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class">
+      <created>1710316842186</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1710316842186</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -682,7 +673,8 @@
     <MESSAGE value="V1.1.5.1" />
     <MESSAGE value="V1.1.6" />
     <MESSAGE value="V1.1.6.1&#10;&#10;more accessible methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.1.6.1&#10;&#10;more accessible methods" />
+    <MESSAGE value="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

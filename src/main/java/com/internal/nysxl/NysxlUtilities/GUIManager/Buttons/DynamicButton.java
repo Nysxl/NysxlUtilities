@@ -71,11 +71,12 @@ public class DynamicButton {
      * @param p The player who clicked the button.
      * @param clickType The type of click.
      */
-    public void executeAction(Player p, ClickType clickType) {
+    public String executeAction(Player p, ClickType clickType) {
         Consumer<Player> action = clickActions.get(clickType);
         if (action != null) {
             action.accept(p);
         }
+        return id;
     }
 
     /**
