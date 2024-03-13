@@ -124,12 +124,24 @@ public class DynamicGUI implements InventoryHolder {
 
     /**
      * removes an action button from the list
-     * @param slot the slot of the action button to be removed
+     * @param id the id of the action button to be removed
      */
-    public void removeActionButton(int slot){
-        this.actionButtons.remove(slot);
-        this.getInventory().setItem(slot,null);
+    public boolean removeActionButton(String id){
+        if(!this.actionButtons.containsKey(id)) return false;
+        this.actionButtons.remove(id);
+        return true;
     }
+
+    /**
+     * removes an action button from the list
+     * @param button the action button to be removed
+     */
+    public boolean removeActionButton(DynamicButton button){
+        if(!this.actionButtons.containsKey(button.getId())) return false;
+        this.actionButtons.remove(button.getId());
+        return true;
+    }
+
 
     /**
      * @return returns this object. not needed for the most part.
@@ -228,7 +240,6 @@ public class DynamicGUI implements InventoryHolder {
     public Map<String, DynamicButton> getActionButtons() {
         return actionButtons;
     }
-
 
     /**
      * Getters and setters

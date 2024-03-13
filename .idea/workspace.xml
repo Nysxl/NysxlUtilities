@@ -12,9 +12,12 @@
     <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class">
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/Buttons/DynamicToggleButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/NysxlUtilities-1.1.6.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/NysxlUtilities-1.1.6.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicListGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +132,7 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.NysxlUtilities [build]">
+  <component name="RunManager" selected="Gradle.NysxlUtilities [check]">
     <configuration name="NysxlUtilities [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -235,10 +238,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.NysxlUtilities [build]" />
+        <item itemvalue="Gradle.NysxlUtilities [check]" />
         <item itemvalue="Gradle.NysxlUtilities [jar]" />
         <item itemvalue="Gradle.NysxlUtilities [clean]" />
-        <item itemvalue="Gradle.NysxlUtilities [check]" />
+        <item itemvalue="Gradle.NysxlUtilities [build]" />
         <item itemvalue="Gradle.NysxlUtilities" />
       </list>
     </recent_temporary>
@@ -251,20 +254,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Getting jitpack to work">
-      <created>1709347298699</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1709347298699</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Getting jitpack to work">
-      <created>1709347565785</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1709347565785</updated>
     </task>
     <task id="LOCAL-00030" summary="Small changes. fixed the plugin.yml, added some extra features for killcollect plugin">
       <created>1709411171586</created>
@@ -595,7 +584,21 @@
       <option name="project" value="LOCAL" />
       <updated>1710316842186</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class">
+      <created>1710320021387</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1710320021389</updated>
+    </task>
+    <task id="LOCAL-00078" summary="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class">
+      <created>1710320081951</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1710320081951</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -683,6 +686,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/ConfigManager/ConfigManager.java</url>
           <line>47</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManager/DynamicGUI.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

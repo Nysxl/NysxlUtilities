@@ -102,14 +102,14 @@ public class DynamicListGUI extends DynamicGUI {
         if (currentPage > 0) {
             addButton(prevButtonSlot, "prevButton", prevButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(-1));
         } else {
-            super.removeActionButton(prevButtonSlot);
+            super.removeActionButton("prevButton");
         }
 
         // Show "Next" button if there are more pages ahead
         if (currentPage < totalPages - 1) {
             addButton(nextButtonSlot, "nextButton", nextButton, DynamicButton.ClickType.LEFT_CLICK, player -> navigatePages(1));
         } else {
-            super.removeActionButton(nextButtonSlot);
+            super.removeActionButton("nextButton");
         }
     }
 
@@ -350,10 +350,7 @@ public class DynamicListGUI extends DynamicGUI {
      */
     public void clearList() {
         availableSlots = new ArrayList<>(listSlots);
-
-        listSlots.forEach(s -> {
-            super.removeActionButton(s);
-        });
+        listSlots.clear();
     }
 
 
