@@ -1,12 +1,17 @@
 package com.internal.nysxl.NysxlUtilities.GUIManagerV2.GUIs;
 
 import com.internal.nysxl.NysxlUtilities.GUIManagerV2.Buttons.Button;
+import com.internal.nysxl.NysxlUtilities.ItemBuilder.ItemFactory;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,8 +19,12 @@ import java.util.Map;
  * Represents a GUI with clickable buttons.
  */
 public class GUI implements InventoryHolder {
+
     private final Inventory inventory;
     private final Map<Integer, Button> buttons;
+    private final ItemStack fillItem = new ItemFactory(Material.BLACK_STAINED_GLASS_PANE).setItemDisplayName(" ").buildItem();
+
+    private ArrayList<Integer> fillSlots = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,48,49,50,51,52,53));
 
     /**
      * Creates a GUI with a specified title and size.
@@ -36,6 +45,10 @@ public class GUI implements InventoryHolder {
             inventory.setItem(button.getSlot(), button.getItem());
             buttons.put(button.getSlot(), button);
         }
+    }
+
+    public void addAllButtons(){
+        buttons.values().forEach(this::addButton);
     }
 
     /**
@@ -78,8 +91,28 @@ public class GUI implements InventoryHolder {
         return "";
     }
 
+    /**
+     * returns all buttons
+     * @return a map<Integer, Button>
+     */
     public Map<Integer, Button> getButtons() {
         return buttons;
+    }
+
+    public void initializeFill(){
+        for(Integer i : fillSlots){
+            this.inventory.setItem(i, fillItem);
+        }
+    }
+
+    /**
+     * opens the gui for a player
+     * @param player the player to open the gui for.
+     */
+    public void open(Player player){
+        initializeFill();
+        addAllButtons();
+        player.openInventory(inventory);
     }
 
     @Override

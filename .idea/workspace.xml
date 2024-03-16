@@ -9,14 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/Buttons/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/GUIs/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/GUIs/ListGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/Interfaces/Executor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/Interfaces/Standard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/Interfaces/Toggleable.java" afterDir="false" />
+    <list default="true" id="70182cf2-ee59-4456-b609-4b8f9e4a2adc" name="Changes" comment="V1.1.6.3&#10;&#10;Refactored Dynamic Button Class">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/GUIs/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/GUIs/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/GUIs/ListGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/GUIs/ListGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,13 +250,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708731017013</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Bug fixes, and added a command Manager">
-      <created>1709434680381</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1709434680381</updated>
     </task>
     <task id="LOCAL-00033" summary="Bug fixes to CommandManager">
       <created>1709436879588</created>
@@ -597,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710365796297</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="V1.1.6.3&#10;&#10;Refactored Dynamic Button Class">
+      <created>1710573610604</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1710573610605</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -676,7 +673,8 @@
     <MESSAGE value="V1.1.6" />
     <MESSAGE value="V1.1.6.1&#10;&#10;more accessible methods" />
     <MESSAGE value="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.1.6.2&#10;&#10;Refactored Dynamic Button Class" />
+    <MESSAGE value="V1.1.6.3&#10;&#10;Refactored Dynamic Button Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.1.6.3&#10;&#10;Refactored Dynamic Button Class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -693,7 +691,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/internal/nysxl/NysxlUtilities/GUIManagerV2/GUIs/ListGUI.java</url>
-          <line>148</line>
+          <line>153</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>

@@ -1,7 +1,6 @@
 package com.internal.nysxl.NysxlUtilities.GUIManagerV2.GUIs;
 
 import com.internal.nysxl.NysxlUtilities.GUIManagerV2.Buttons.Button;
-import com.internal.nysxl.NysxlUtilities.GUIManagerV2.Interfaces.Standard;
 import com.internal.nysxl.NysxlUtilities.ItemBuilder.ItemFactory;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -121,14 +120,15 @@ public class ListGUI extends GUI {
     private void refreshInventory(Player player) {
         Inventory inv = player.getOpenInventory().getTopInventory();
         inv.clear(); // Be cautious with clearing, you may need a more nuanced approach
-        addAllButtons(); // Re-add all buttons including dynamic list items and navigation buttons
+        initializeFill(); //adds the background fill to the inventory.
+        addAllListButtons(); // Re-add all buttons including dynamic list items and navigation buttons
         player.updateInventory(); // Make sure the client sees the update
     }
 
     /**
      * Adds all buttons to the GUI, including static, dynamic, and navigation buttons.
      */
-    private void addAllButtons() {
+    private void addAllListButtons() {
         listItems.values().forEach(this::addButton);
         updateNavigationButtons(); // Ensure navigation buttons are correctly placed
     }
@@ -139,6 +139,22 @@ public class ListGUI extends GUI {
      */
     private int getMaxPages() {
         return (int) Math.ceil((double) listItems.size() / itemsPerPage);
+    }
+
+    /**
+     * opens the gui for the player.
+     * @param player the player to open the gui for.
+     */
+    @Override
+    public void open(Player player){
+        refreshInventory(player);
+    }
+
+    /**
+     * clears all items from the listItems array.
+     */
+    public void clearListItems(){
+        listItems.clear();
     }
 
     /**
